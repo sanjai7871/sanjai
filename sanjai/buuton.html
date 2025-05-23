@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multiple Video Modals with Language Options</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Default button styling */
+    .promo-video-inline {
+        display: inline-block;
+        width: 40px;  /* Default button size */
+        height: 40px;  /* Default button size */
+        border-radius: 50%;
+        background-color: #a0ca00;
+        animation: pulse 2s infinite;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        margin: 10px;
+    }
+
+    .promo-video-inline .fa-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 16px;  /* Default icon size */
+        z-index: 1;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .custom-video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .custom-video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* Button size for smaller screens */
+    @media (max-width: 576px) {
+        .promo-video-inline {
+            width: 30px;  /* Smaller button size on mobile */
+            height: 30px;  /* Smaller button size on mobile */
+        }
+
+        .promo-video-inline .fa-play {
+            font-size: 12px;  /* Smaller icon on mobile */
+        }
+    }
+  </style>
+</head>
+<body>
+
+<section id="solution" class="section-padding" style="background:#fff; padding-bottom:180px;">
+  <div class="container">
+    <!-- Video Buttons -->
+    <span class="promo-video-inline" data-toggle="modal" data-target="#videoModal1">
+      <i class="fa fa-play"></i>
+    </span>
+    <span class="promo-video-inline" data-toggle="modal" data-target="#videoModal2">
+      <i class="fa fa-play"></i>
+    </span>
+    <span class="promo-video-inline" data-toggle="modal" data-target="#videoModal3">
+      <i class="fa fa-play"></i>
+    </span>
+    <span class="promo-video-inline" data-toggle="modal" data-target="#videoModal4">
+      <i class="fa fa-play"></i>
+    </span>
+    <span class="promo-video-inline" data-toggle="modal" data-target="#videoModal5">
+      <i class="fa fa-play"></i>
+    </span>
+
+    <!-- Modal 1 -->
+    <div class="modal fade" id="videoModal1" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0">
+            <div class="custom-video-wrapper">
+              <iframe id="video1" src="https://www.youtube.com/embed/CAVyaJkC8iI" allowfullscreen></iframe>
+            </div>
+            <!-- Language Selection -->
+            <div class="language-options">
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(1, 'en')">English</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(1, 'ar')">Arabic</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(1, 'ur')">Urdu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="videoModal2" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0">
+            <div class="custom-video-wrapper">
+              <iframe id="video2" src="https://www.youtube.com/embed/Dq_FqWyP7jU" allowfullscreen></iframe>
+            </div>
+            <!-- Language Selection -->
+            <div class="language-options">
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(2, 'en')">English</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(2, 'ar')">Arabic</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(2, 'ur')">Urdu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="videoModal3" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0">
+            <div class="custom-video-wrapper">
+              <iframe id="video3" src="https://www.youtube.com/embed/VIDEO3" allowfullscreen></iframe>
+            </div>
+            <!-- Language Selection -->
+            <div class="language-options">
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(3, 'en')">English</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(3, 'ar')">Arabic</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(3, 'ur')">Urdu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="modal fade" id="videoModal4" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0">
+            <div class="custom-video-wrapper">
+              <iframe id="video4" src="https://www.youtube.com/embed/VIDEO4" allowfullscreen></iframe>
+            </div>
+            <!-- Language Selection -->
+            <div class="language-options">
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(4, 'en')">English</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(4, 'ar')">Arabic</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(4, 'ur')">Urdu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div class="modal fade" id="videoModal5" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0">
+            <div class="custom-video-wrapper">
+              <iframe id="video5" src="https://www.youtube.com/embed/VIDEO5" allowfullscreen></iframe>
+            </div>
+            <!-- Language Selection -->
+            <div class="language-options">
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(5, 'en')">English</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(5, 'ar')">Arabic</button>
+              <button class="btn btn-sm btn-secondary" onclick="changeLanguage(5, 'ur')">Urdu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Bootstrap JS & jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- JS to change video language -->
+<script>
+  function changeLanguage(videoIndex, language) {
+    var iframe = document.getElementById('video' + videoIndex);
+    var videoId = iframe.src.split('/')[4].split('?')[0];  // Extract video ID
+    var languageUrl = 'https://www.youtube.com/embed/' + videoId + '?hl=' + language; // Modify the URL with language
+
+    iframe.src = languageUrl;  // Update the iframe source to the selected language video
+  }
+</script>
+
+</body>
+</html>
