@@ -1,0 +1,82 @@
+<?php
+// Theme setup
+function vajiramandravi_theme_setup() {
+    // Enable Custom Logo Support
+    add_theme_support('custom-logo', array(
+        'height'      => 100,
+        'width'       => 250,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ));
+
+    // Enable Title Tag Support
+    add_theme_support('title-tag');
+
+    // Enable Post Thumbnails
+    add_theme_support('post-thumbnails');
+
+    // Register Menu
+    register_nav_menus(array(
+        'primary' => __('Primary Menu', 'vajiramandravi'),
+    ));
+
+    // Add Customizer Settings
+    add_theme_support('customize-selective-refresh-widgets');
+} 
+add_action('after_setup_theme', 'vajiramandravi_theme_setup');
+
+// Enqueue Styles & Scripts
+function vajiramandravi_scripts() {
+    wp_enqueue_style('main-style', get_stylesheet_uri());
+    wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'vajiramandravi_scripts');
+
+// Add Schema Markup for SEO
+function vajiramandravi_json_ld_schema() {
+    ob_start(); // Prevent header modification errors
+    ?>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "<?php bloginfo('name'); ?>",
+        "url": "<?php echo esc_url(home_url('/')); ?>"
+    }
+    </script>
+    <?php
+    ob_end_flush(); // Flush output buffer
+}
+add_action('wp_head', 'vajiramandravi_json_ld_schema');
+
+// Register Widget Areas
+function vajiramandravi_widgets_init() {
+    register_sidebar(array(
+        'name'          => __('Sidebar', 'vajiramandravi'),
+        'id'            => 'sidebar-1',
+        'description'   => __('Add widgets here to appear in your sidebar.', 'vajiramandravi'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name'          => __('Footer', 'vajiramandravi'),
+        'id'            => 'footer-1',
+        'description'   => __('Add widgets here to appear in your footer.', 'vajiramandravi'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+}
+add_action('widgets_init', 'vajiramandravi_widgets_init');
+
+
+
+
+
+// kk
+
+    

@@ -817,7 +817,36 @@ get_header();
 }
 
 
+/*cd*/
 
+.cd1 > .card {
+  /*height: 100% !important;*/
+  /*width: 200px !important;*/
+}
+
+.cd1 > .card img {
+  max-height: 460px !important;
+  width: 230px !important; 
+  /* Ensures the image stretches fully within its parent 
+  object-fit: cover !important; /* Optional: Makes the image cover the card area */
+}
+.cd1 > .card h1 {
+  font-size: 22px;
+}
+.cd2 >.card img{
+     width: 30% !important; 
+}
+
+
+.cd10 > .card img {
+  max-height: 460px !important;
+  width: 165px !important; 
+  /* Ensures the image stretches fully within its parent 
+  object-fit: cover !important; /* Optional: Makes the image cover the card area */
+}
+.cd10 > .card h1 {
+  font-size: 22px;
+}
   </style>
     <!--<script src="https://cdn.tailwindcss.com"></script>-->
 
@@ -857,7 +886,7 @@ get_header();
             <div id="carouselExampleDark" class="carousel carousel-dark slide hero-image-slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="3000">
-                        <img src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-16-03-31-MAKTAB.png"
+                        <img src="https://maktab.info/wp-content/uploads/2025/04/Group-1321314633.png"
                             class="d-block w-100" alt="Slide 1" />
                     </div>
                     <div class="carousel-item" data-bs-interval="3000">
@@ -1343,7 +1372,7 @@ get_header();
 
 
 
-            <div class="col-lg-5 col-md-12 v1" style="padding:0px 30px;">
+            <div class="col-lg-5 col-md-12 v1 d1" style="padding:0px 30px;">
                 <h2 class="Solution-title">Maktab Staff Panel – Smart Tools for <span
                         class="solutin-highlight">Attendance & Exam</span></h2>
                 <p class="solution-para">Manage attendance, exams, schedules, and records efficiently. Built for
@@ -1386,142 +1415,50 @@ get_header();
     <div class="sticky1-006">
       <div class="outer-003">
         <div class="horizontal-scroll-004">
-          <div class="panel-005">
+          <div class="panel-005 cd1">
+
 
             <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-10-38-MAKTAB.png"
-                alt="Dashboard Overview">
-              <h4>Dashboard Overview</h4>
-              <p>Summarizes all vital stats like student count, fee status, and activity logs. Everything is visualized
-                for quick understanding and better decision-making.</p>
-            </div>
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-07-13-MAKTAB.png" 
+        alt="Dashboard Overview">
+   <h1>Dashboard Overview</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-08-39-MAKTAB-2.png"
-                alt="Student Profiles">
-              <h4>Student Profiles</h4>
-              <p>View and manage full student records, including attendance, academics, and personal info. Everything is
-                securely organized and easy to access.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-43-20-MAKTAB.png" 
+        alt="Student Profiles">
+   <h1>Student Profiles</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-12-59-MAKTAB.png"
-                alt="Class Scheduling">
-              <h4>Class Scheduling</h4>
-              <p>Create schedules with automatic conflict checks. Assign classes to teachers and students with real-time
-                updates across the platform.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-44-49-MAKTAB.png" 
+        alt="Class Scheduling">
+   <h1>Class Scheduling</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-18-18-MAKTAB1.png"
-                alt="Teacher Management">
-              <h4>Teacher Management</h4>
-              <p>Assign classes, track workloads, and evaluate teacher performance. Keep all staff records up to date
-                and accessible from anywhere.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-46-55-MAKTAB.png" 
+        alt="Teacher Management">
+   <h1>Teacher Management</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-19-46-MAKTAB.png"
-                alt="Fee Tracking">
-              <h4>Fee Tracking</h4>
-              <p>Manage fee collection, generate receipts, and send reminders. Get instant reports on pending, paid, and
-                upcoming fee statuses.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-52-04-MAKTAB.png" 
+        alt="Fee Tracking">
+   <h1>Fee Tracking</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-33-42-MAKTAB-1.png"
-                alt="Exam Results">
-              <h4>Exam Results</h4>
-              <p>Publish and analyze student results with visual summaries. Archive past data and identify academic
-                strengths and weaknesses.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-30-42-MAKTAB.png"
-                alt="Reports & Analytics">
-              <h4>Reports & Analytics</h4>
-              <p>Track trends in attendance, fees, and performance. Generate printable reports with graphs and insights
-                for internal review.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-36-36-MAKTAB.png"
-                alt="Announcements">
-              <h4>Announcements</h4>
-              <p>Post school-wide alerts, news, and updates instantly. Keep students and staff informed about important
-                developments.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-37-59-MAKTAB.png"
-                alt="Library System">
-              <h4>Library System</h4>
-              <p>Manage book inventory, checkouts, and returns. Maintain an organized catalog with automated lending
-                history tracking.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-42-00-MAKTAB1.png"
-                alt="Attendance Tracking">
-              <h4>Attendance Tracking</h4>
-              <p>Log student and teacher attendance daily. Generate reports and alert admins for frequent or unusual
-                absences quickly.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-42-49-MAKTAB.png"
-                alt="Role Management">
-              <h4>Role Management</h4>
-              <p>Create custom roles and permissions for users. Secure the system by limiting access based on
-                responsibilities.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-44-55-MAKTAB.png"
-                alt="Document Center">
-              <h4>Document Center</h4>
-              <p>Store and manage official documents like certificates, syllabi, and forms. Secure access with download
-                options for users.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-49-33-MAKTAB.png"
-                alt="Event Calendar">
-              <h4>Event Calendar</h4>
-              <p>Plan and share upcoming events, holidays, and meetings. Sync important dates across the system for easy
-                access.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-51-26-MAKTAB.png"
-                alt="User Settings">
-              <h4>User Settings</h4>
-              <p>Allow users to edit their profile, change passwords, and set preferences. All changes update instantly
-                across devices.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-33-42-MAKTAB-1.png"
-                alt="Backup & Restore">
-              <h4>Backup & Restore</h4>
-              <p>Schedule automatic backups and restore data when needed. Ensure the safety and continuity of all system
-                information.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot_2025-04-07-14-51-15-395_com.ifelsetech.maktab-1.png" 
+        alt="Exam Results">
+   <h1>Exam Results</h1>
+</div>
 
           </div>
         </div>
@@ -1530,8 +1467,8 @@ get_header();
   </section>
 
  <section class="spacer-001 d1">  </section>
- <section class="m1">
-     <div class="c1">
+ <section class="m1 cd1">
+     <div class="c1 ">
       <h1>Maktab Admin Panel</h1>
       <p>
         Efficiently manage students, teachers, classes, and records in one place.
@@ -1539,140 +1476,47 @@ get_header();
         speed to everyday operations.
       </p>
     </div>
-     <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-10-38-MAKTAB.png"
-                alt="Dashboard Overview">
-              <h4>Dashboard Overview</h4>
-              <p>Summarizes all vital stats like student count, fee status, and activity logs. Everything is visualized
-                for quick understanding and better decision-making.</p>
-            </div>
+                <div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-07-13-MAKTAB.png" 
+        alt="Dashboard Overview">
+   <h1>Dashboard Overview</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-08-39-MAKTAB-2.png"
-                alt="Student Profiles">
-              <h4>Student Profiles</h4>
-              <p>View and manage full student records, including attendance, academics, and personal info. Everything is
-                securely organized and easy to access.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-43-20-MAKTAB.png" 
+        alt="Student Profiles">
+   <h1>Student Profiles</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-12-59-MAKTAB.png"
-                alt="Class Scheduling">
-              <h4>Class Scheduling</h4>
-              <p>Create schedules with automatic conflict checks. Assign classes to teachers and students with real-time
-                updates across the platform.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-44-49-MAKTAB.png" 
+        alt="Class Scheduling">
+   <h1>Class Scheduling</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-18-18-MAKTAB1.png"
-                alt="Teacher Management">
-              <h4>Teacher Management</h4>
-              <p>Assign classes, track workloads, and evaluate teacher performance. Keep all staff records up to date
-                and accessible from anywhere.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-46-55-MAKTAB.png" 
+        alt="Teacher Management">
+   <h1>Teacher Management</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-19-46-MAKTAB.png"
-                alt="Fee Tracking">
-              <h4>Fee Tracking</h4>
-              <p>Manage fee collection, generate receipts, and send reminders. Get instant reports on pending, paid, and
-                upcoming fee statuses.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-52-04-MAKTAB.png" 
+        alt="Fee Tracking">
+   <h1>Fee Tracking</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-33-42-MAKTAB-1.png"
-                alt="Exam Results">
-              <h4>Exam Results</h4>
-              <p>Publish and analyze student results with visual summaries. Archive past data and identify academic
-                strengths and weaknesses.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-30-42-MAKTAB.png"
-                alt="Reports & Analytics">
-              <h4>Reports & Analytics</h4>
-              <p>Track trends in attendance, fees, and performance. Generate printable reports with graphs and insights
-                for internal review.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-36-36-MAKTAB.png"
-                alt="Announcements">
-              <h4>Announcements</h4>
-              <p>Post school-wide alerts, news, and updates instantly. Keep students and staff informed about important
-                developments.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-37-59-MAKTAB.png"
-                alt="Library System">
-              <h4>Library System</h4>
-              <p>Manage book inventory, checkouts, and returns. Maintain an organized catalog with automated lending
-                history tracking.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-42-00-MAKTAB1.png"
-                alt="Attendance Tracking">
-              <h4>Attendance Tracking</h4>
-              <p>Log student and teacher attendance daily. Generate reports and alert admins for frequent or unusual
-                absences quickly.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-42-49-MAKTAB.png"
-                alt="Role Management">
-              <h4>Role Management</h4>
-              <p>Create custom roles and permissions for users. Secure the system by limiting access based on
-                responsibilities.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-44-55-MAKTAB.png"
-                alt="Document Center">
-              <h4>Document Center</h4>
-              <p>Store and manage official documents like certificates, syllabi, and forms. Secure access with download
-                options for users.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-49-33-MAKTAB.png"
-                alt="Event Calendar">
-              <h4>Event Calendar</h4>
-              <p>Plan and share upcoming events, holidays, and meetings. Sync important dates across the system for easy
-                access.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-51-26-MAKTAB.png"
-                alt="User Settings">
-              <h4>User Settings</h4>
-              <p>Allow users to edit their profile, change passwords, and set preferences. All changes update instantly
-                across devices.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-33-42-MAKTAB-1.png"
-                alt="Backup & Restore">
-              <h4>Backup & Restore</h4>
-              <p>Schedule automatic backups and restore data when needed. Ensure the safety and continuity of all system
-                information.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot_2025-04-07-14-51-15-395_com.ifelsetech.maktab-1.png" 
+        alt="Exam Results">
+   <h1>Exam Results</h1>
+</div>
 
  </section>
 
@@ -1689,7 +1533,7 @@ get_header();
             <div class="col-lg-6 col-md-12">
                 <img src="https://maktab.info/wp-content/uploads/2025/04/screenshot1.png" width="100%">
             </div>
-            <div class="col-lg-5 col-md-12 v1" style="padding:0px 30px;">
+            <div class="col-lg-5 col-md-12 v1 d1" style="padding:0px 30px;">
                 <h2 class="Solution-title">Maktab Parent Panel – <span class="solutin-highlight">Easy Mobile Access
                     </span>for Students & Parents</h2>
                 <p class="solution-para">Track attendance, results, and updates on your phone. Designed for Makatib,
@@ -1727,142 +1571,71 @@ get_header();
     <div class="sticky1-0017">
       <div class="outer-0012">
         <div class="horizontal-scroll-0014">
-          <div class="panel-0017">
+          <div class="panel-0017 cd10">
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-10-38-MAKTAB.png"
-                alt="Dashboard Overview">
-              <h4>Dashboard Overview</h4>
-              <p>Summarizes all vital stats like student count, fee status, and activity logs. Everything is visualized
-                for quick understanding and better decision-making.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Group-1321314629.png" 
+        alt="Dashboard Overview">
+   <h1>Dashboard Overview</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-08-39-MAKTAB-2.png"
-                alt="Student Profiles">
-              <h4>Student Profiles</h4>
-              <p>View and manage full student records, including attendance, academics, and personal info. Everything is
-                securely organized and easy to access.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/image-12-1.png" 
+        alt="Student Profiles">
+   <h1>Student Profiles</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-12-59-MAKTAB.png"
-                alt="Class Scheduling">
-              <h4>Class Scheduling</h4>
-              <p>Create schedules with automatic conflict checks. Assign classes to teachers and students with real-time
-                updates across the platform.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-52-16-MAKTAB.png" 
+        alt="Class Scheduling">
+   <h1>Class Scheduling</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-18-18-MAKTAB1.png"
-                alt="Teacher Management">
-              <h4>Teacher Management</h4>
-              <p>Assign classes, track workloads, and evaluate teacher performance. Keep all staff records up to date
-                and accessible from anywhere.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-54-13-MAKTAB.png" 
+        alt="Teacher Management">
+   <h1>Teacher Management</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-19-46-MAKTAB.png"
-                alt="Fee Tracking">
-              <h4>Fee Tracking</h4>
-              <p>Manage fee collection, generate receipts, and send reminders. Get instant reports on pending, paid, and
-                upcoming fee statuses.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-55-01-MAKTAB.png" 
+        alt="Fee Tracking">
+   <h1>Fee Tracking</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-33-42-MAKTAB-1.png"
-                alt="Exam Results">
-              <h4>Exam Results</h4>
-              <p>Publish and analyze student results with visual summaries. Archive past data and identify academic
-                strengths and weaknesses.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-56-07-MAKTAB.png" 
+        alt="Exam Results">
+   <h1>Exam Results</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-30-42-MAKTAB.png"
-                alt="Reports & Analytics">
-              <h4>Reports & Analytics</h4>
-              <p>Track trends in attendance, fees, and performance. Generate printable reports with graphs and insights
-                for internal review.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-57-48-MAKTAB-1.png" 
+        alt="Reports">
+   <h1>Reports</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-36-36-MAKTAB.png"
-                alt="Announcements">
-              <h4>Announcements</h4>
-              <p>Post school-wide alerts, news, and updates instantly. Keep students and staff informed about important
-                developments.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-00-01-MAKTAB.png" 
+        alt="Notifications">
+   <h1>Notifications</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-37-59-MAKTAB.png"
-                alt="Library System">
-              <h4>Library System</h4>
-              <p>Manage book inventory, checkouts, and returns. Maintain an organized catalog with automated lending
-                history tracking.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-00-59-MAKTAB-1.png" 
+        alt="Settings">
+   <h1>Settings</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-42-00-MAKTAB1.png"
-                alt="Attendance Tracking">
-              <h4>Attendance Tracking</h4>
-              <p>Log student and teacher attendance daily. Generate reports and alert admins for frequent or unusual
-                absences quickly.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-42-49-MAKTAB.png"
-                alt="Role Management">
-              <h4>Role Management</h4>
-              <p>Create custom roles and permissions for users. Secure the system by limiting access based on
-                responsibilities.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-44-55-MAKTAB.png"
-                alt="Document Center">
-              <h4>Document Center</h4>
-              <p>Store and manage official documents like certificates, syllabi, and forms. Secure access with download
-                options for users.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-49-33-MAKTAB.png"
-                alt="Event Calendar">
-              <h4>Event Calendar</h4>
-              <p>Plan and share upcoming events, holidays, and meetings. Sync important dates across the system for easy
-                access.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-51-26-MAKTAB.png"
-                alt="User Settings">
-              <h4>User Settings</h4>
-              <p>Allow users to edit their profile, change passwords, and set preferences. All changes update instantly
-                across devices.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-33-42-MAKTAB-1.png"
-                alt="Backup & Restore">
-              <h4>Backup & Restore</h4>
-              <p>Schedule automatic backups and restore data when needed. Ensure the safety and continuity of all system
-                information.</p>
-            </div>
 
           </div>
         </div>
@@ -1871,8 +1644,8 @@ get_header();
   </section>
     
     
-   <section class="m1">
-       <div class="c1">
+   <section class="m1 cd10">
+       <div class="c1 ">
       <h1>Maktab Admin Panel</h1>
       <p>
         Efficiently manage students, teachers, classes, and records in one place.
@@ -1881,139 +1654,68 @@ get_header();
       </p>
     </div>
         <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-10-38-MAKTAB.png"
-                alt="Dashboard Overview">
-              <h4>Dashboard Overview</h4>
-              <p>Summarizes all vital stats like student count, fee status, and activity logs. Everything is visualized
-                for quick understanding and better decision-making.</p>
-            </div>
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Group-1321314629.png" 
+        alt="Dashboard Overview">
+   <h1>Dashboard Overview</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-08-39-MAKTAB-2.png"
-                alt="Student Profiles">
-              <h4>Student Profiles</h4>
-              <p>View and manage full student records, including attendance, academics, and personal info. Everything is
-                securely organized and easy to access.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/image-12-1.png" 
+        alt="Student Profiles">
+   <h1>Student Profiles</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-12-59-MAKTAB.png"
-                alt="Class Scheduling">
-              <h4>Class Scheduling</h4>
-              <p>Create schedules with automatic conflict checks. Assign classes to teachers and students with real-time
-                updates across the platform.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-52-16-MAKTAB.png" 
+        alt="Class Scheduling">
+   <h1>Class Scheduling</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-18-18-MAKTAB1.png"
-                alt="Teacher Management">
-              <h4>Teacher Management</h4>
-              <p>Assign classes, track workloads, and evaluate teacher performance. Keep all staff records up to date
-                and accessible from anywhere.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-54-13-MAKTAB.png" 
+        alt="Teacher Management">
+   <h1>Teacher Management</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-19-46-MAKTAB.png"
-                alt="Fee Tracking">
-              <h4>Fee Tracking</h4>
-              <p>Manage fee collection, generate receipts, and send reminders. Get instant reports on pending, paid, and
-                upcoming fee statuses.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-55-01-MAKTAB.png" 
+        alt="Fee Tracking">
+   <h1>Fee Tracking</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-33-42-MAKTAB-1.png"
-                alt="Exam Results">
-              <h4>Exam Results</h4>
-              <p>Publish and analyze student results with visual summaries. Archive past data and identify academic
-                strengths and weaknesses.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-56-07-MAKTAB.png" 
+        alt="Exam Results">
+   <h1>Exam Results</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-30-42-MAKTAB.png"
-                alt="Reports & Analytics">
-              <h4>Reports & Analytics</h4>
-              <p>Track trends in attendance, fees, and performance. Generate printable reports with graphs and insights
-                for internal review.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-13-57-48-MAKTAB-1.png" 
+        alt="Reports">
+   <h1>Reports</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-36-36-MAKTAB.png"
-                alt="Announcements">
-              <h4>Announcements</h4>
-              <p>Post school-wide alerts, news, and updates instantly. Keep students and staff informed about important
-                developments.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-00-01-MAKTAB.png" 
+        alt="Notifications">
+   <h1>Notifications</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-37-59-MAKTAB.png"
-                alt="Library System">
-              <h4>Library System</h4>
-              <p>Manage book inventory, checkouts, and returns. Maintain an organized catalog with automated lending
-                history tracking.</p>
-            </div>
+<div class="card hover-card">
+   <img class="screenshot-images" 
+        src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-14-00-59-MAKTAB-1.png" 
+        alt="Settings">
+   <h1>Settings</h1>
+</div>
 
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-42-00-MAKTAB1.png"
-                alt="Attendance Tracking">
-              <h4>Attendance Tracking</h4>
-              <p>Log student and teacher attendance daily. Generate reports and alert admins for frequent or unusual
-                absences quickly.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-42-49-MAKTAB.png"
-                alt="Role Management">
-              <h4>Role Management</h4>
-              <p>Create custom roles and permissions for users. Secure the system by limiting access based on
-                responsibilities.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-44-55-MAKTAB.png"
-                alt="Document Center">
-              <h4>Document Center</h4>
-              <p>Store and manage official documents like certificates, syllabi, and forms. Secure access with download
-                options for users.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-49-33-MAKTAB.png"
-                alt="Event Calendar">
-              <h4>Event Calendar</h4>
-              <p>Plan and share upcoming events, holidays, and meetings. Sync important dates across the system for easy
-                access.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-51-26-MAKTAB.png"
-                alt="User Settings">
-              <h4>User Settings</h4>
-              <p>Allow users to edit their profile, change passwords, and set preferences. All changes update instantly
-                across devices.</p>
-            </div>
-
-            <div class="card hover-card">
-              <img class="screenshot-images"
-                src="https://maktab.info/wp-content/uploads/2025/04/Screenshot-2025-04-07-at-19-33-42-MAKTAB-1.png"
-                alt="Backup & Restore">
-              <h4>Backup & Restore</h4>
-              <p>Schedule automatic backups and restore data when needed. Ensure the safety and continuity of all system
-                information.</p>
-            </div>
    </section>
     
     

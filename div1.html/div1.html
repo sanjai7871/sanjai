@@ -1,0 +1,2577 @@
+<?php 
+/* 
+     Template Name: upsc optional subjects coaching
+*/
+get_header();
+?>
+
+<style>
+@media only screen and (max-width: 767px) {
+  .sb1 {
+    font-size: 14px;
+  }
+}
+img .arrow{
+    top: 500px;
+}
+</style>
+
+
+<section class="hero-section">
+<div class="container hero-content-container">
+  <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+    <div class="hero-content">
+      <h1 class="heading1">Optional   <span class="highlights">Subject Program</span> For UPSC CSE 2026</h1>
+      <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/arrow.png" class="arrow" alt="users">
+      <p class="gray-para">Best UPSC Optional Subject Coaching<br class="mb-hide"></p>
+      </div>
+    </div>
+    <div class="col-md-1 col-sm-0">
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mt-5 mt-sm-0">
+     <div class="form-box">
+        <h2 class="form-title">Take the First Step Towards Your  <span class="highlights">UPSC Dream</span></h2>
+        <!--<p class="steps">Take the First Step Towards Your UPSC Dream</p>-->
+        <div class="fill">Fill out our registration form and get started today!</div>
+<form id="formEl">
+    <div class="form-group">
+        <div class="input-container">
+            <i class="fa-regular fa-user"></i>
+            <input class="form-control" id="leadformName" type="text" name="Name" placeholder="Enter your name" required>
+        </div>
+        <span id="nameError" class="error-message">Please enter a valid name.</span>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-container">
+                    <i class="fa-regular fa-id-badge"></i>
+                    <input class="form-control" id="leadformPhone" type="text" name="Phonenumber" placeholder="Contact" maxlength="10" required>
+                </div>
+                <span id="phoneError" class="error-message">Please enter a valid 10-digit phone number.</span>
+            </div>
+            <div class="col-md-6 form-padding">
+                <div class="input-container">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input class="form-control" id="leadformEmail" type="email" name="Email" placeholder="Enter your email" required>
+                </div>
+                <span id="emailError" class="error-message">Please enter a valid email address.</span>
+            </div>
+        </div>
+    </div>
+    <div class="select-container">
+        <i class="fa-regular fa-clone"></i>
+        <select class="form-select" id="leadformCourse" required>
+            <option selected disabled value="">Select Your Interested Course</option>
+ <option value="Agriculture">Agriculture</option>
+<option value="Anthropology">Anthropology</option>
+<option value="Commerce & Accountancy">Commerce & Accountancy</option>
+<option value="Economics">Economics</option>
+<option value="Geography">Geography</option>
+<option value="History">History</option>
+<option value="Mathematics">Mathematics</option>
+<option value="Philosophy">Philosophy</option>
+<option value="Psychology">Psychology</option>
+<option value="Political Science and International Relations">Political Science and International Relations
+</option>
+
+<option value="Public Administration">Public Administration</option>
+<option value="Sociology">Sociology</option></select>            
+        <span id="courseError" class="error-message">Please select a valid course.</span>
+    </div>
+    <div class="form-group">
+        <div class="input-container">
+            <i class="fa-solid fa-map-pin"></i>
+            <input class="form-control" id="city" type="text" name="City" placeholder="Enter your city" required>
+        </div>
+        <span id="cityError" class="error-message">Please enter your city.</span>
+    </div>
+    <div style="display:flex; align-items: center;">
+        <button type="submit" id="submitButton" class="btn btn-primary submitbtn" disabled>Submit Now!</button>
+        <span class="loader" id="loader"></span>
+    </div>
+</form>
+<div id="formResponse"></div>
+
+   
+
+
+        <!--<div class="indicate">Already Have An Account? <a href="#" style="text-decoration: none;">Sign In</a></div>-->
+    </div>
+      </div>
+    </div>
+  </section>
+<script>
+    jQuery(document).ready(function($) {
+        // Remove these lines from the jQuery ready function
+        // Default popup type is 'auto' for automatic popups
+        // let formPopupType = 'auto';
+        // $('#formPopupType').val('auto'); // Set initial value
+
+        // // Find the enquire button
+        // const enquireButton = document.querySelector('.enquire-now');
+
+        // // Handle manual clicks on enquire button
+        // if (enquireButton) {
+        //     enquireButton.addEventListener('click', function() {
+        //         formPopupType = 'manual';
+        //         $('#formPopupType').val('manual');
+        //         console.log('Form opened manually via Enquire button');
+        //     });
+        // }
+
+        // // Optional: Log when form opens automatically
+        // $(document).ready(function() {
+        //     if (formPopupType === 'auto') {
+        //         console.log('Form opened automatically');
+        //     }
+        // });
+
+        // Get all form elements properly
+        const nameInput = document.getElementById('leadformName');
+        const emailInput = document.getElementById('leadformEmail');
+        const phoneInput = document.getElementById('leadformPhone');
+        const courseSelect = document.getElementById('leadformCourse');
+        const cityInput = document.getElementById('city');
+        const submitButton = document.getElementById('submitButton');
+        const formEl = document.getElementById('formEl');
+        const loader = document.getElementById('loader');
+
+        // Error message elements
+        const nameError = document.getElementById('nameError');
+        nameError.innerText = 'Please enter a valid name.';
+
+        const emailError = document.getElementById('emailError');
+        emailError.innerText = 'Please enter a valid email address.';
+
+        const phoneError = document.getElementById('phoneError');
+        phoneError.innerText = 'Please enter a valid 10-digit phone number.';
+
+        const courseError = document.getElementById('courseError');
+        courseError.innerText = 'Please select a course.';
+
+        const cityError = document.getElementById('cityError');
+        cityError.innerText = 'Please enter your city.';
+
+        // Initially disable submit button
+        submitButton.disabled = true;
+
+        // Hide all error messages
+        // Update hideAllErrors function
+        function hideAllErrors() {
+            nameError.style.display = 'none';
+            emailError.style.display = 'none';
+            phoneError.style.display = 'none';
+            courseError.style.display = 'none';
+            cityError.style.display = 'none';
+        }
+
+        // Validation functions
+        function validateName(showError = false) {
+            // Allow only letters, spaces and basic punctuation
+            const nameRegex = /^[a-zA-Z\s.']{2,50}$/;
+            const isValid = nameRegex.test(nameInput.value.trim());
+            if (showError) {
+                nameError.style.display = isValid ? 'none' : 'block';
+                nameError.innerText = !nameInput.value.trim() ? 
+                    'Name is required' : 
+                    'Please enter a valid name (2-50 characters, letters only)';
+            }
+            return isValid;
+        }
+
+        function validateEmail(showError = false) {
+            // More comprehensive email validation
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            const isValid = emailRegex.test(emailInput.value.trim());
+            if (showError) {
+                emailError.style.display = isValid ? 'none' : 'block';
+                emailError.innerText = !emailInput.value.trim() ? 
+                    'Email is required' : 
+                    'Please enter a valid email address';
+            }
+            return isValid;
+        }
+
+        function validatePhone(showError = false) {
+            // Strict 10-digit validation
+            const phoneRegex = /^[1-9]\d{9}$/;
+            const isValid = phoneRegex.test(phoneInput.value.trim());
+            if (showError) {
+                phoneError.style.display = isValid ? 'none' : 'block';
+                phoneError.innerText = !phoneInput.value.trim() ? 
+                    'Phone number is required' : 
+                    'Please enter a valid 10-digit mobile number';
+            }
+            return isValid;
+        }
+
+        function validateCity(showError = false) {
+            // Allow letters, spaces and basic punctuation
+            const cityRegex = /^[a-zA-Z\s.]{2,30}$/;
+            const isValid = cityRegex.test(cityInput.value.trim());
+            if (showError) {
+                cityError.style.display = isValid ? 'none' : 'block';
+                cityError.innerText = !cityInput.value.trim() ? 
+                    'City is required' : 
+                    'Please enter a valid city name';
+            }
+            return isValid;
+        }
+
+        function validateCourse(showError = false) {
+            const isValid = courseSelect.value !== "";
+            if (showError) {
+                courseError.style.display = isValid ? 'none' : 'block';
+                courseError.innerText = 'Please select a course';
+            }
+            return isValid;
+        }
+
+        // Function to check form validity and update submit button
+        function checkFormValidity(showErrors = false) {
+            const isNameValid = validateName(showErrors);
+            const isEmailValid = validateEmail(showErrors);
+            const isPhoneValid = validatePhone(showErrors);
+            const isCourseValid = validateCourse(showErrors);
+            const isCityValid = validateCity(showErrors);
+
+            submitButton.disabled = !(isNameValid && isEmailValid && isPhoneValid && 
+                                isCourseValid && isCityValid);
+            
+            return !submitButton.disabled;
+        }
+
+        // Input event listeners for real-time validation and error message updates
+        nameInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^a-zA-Z\s.']/g, '');
+            if (nameError.style.display === 'block') {
+                validateName(true);
+            }
+            checkFormValidity(false);
+        });
+
+        phoneInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            if (this.value.length > 10) {
+                this.value = this.value.slice(0, 10);
+            }
+
+            if (phoneError.style.display === 'block') {
+                if (validatePhone(false)) {
+                    phoneError.style.display = 'none';
+                }
+            }
+            checkFormValidity(false);
+        });
+
+        emailInput.addEventListener('input', function() {
+            if (emailError.style.display === 'block') {
+                if (validateEmail(false)) {
+                    emailError.style.display = 'none';
+                }
+            }
+            checkFormValidity(false);
+        });
+
+        cityInput.addEventListener('input', function() {
+            this.value = this.value.replace(/[^a-zA-Z\s.]/g, '');
+            if (cityError.style.display === 'block') {
+                validateCity(true);
+            }
+            checkFormValidity(false);
+        });
+
+        // Blur (focus lost) event listeners for validation
+        nameInput.addEventListener('blur', function() {
+            validateName(true);
+        });
+
+        emailInput.addEventListener('blur', function() {
+            validateEmail(true);
+        });
+
+        phoneInput.addEventListener('blur', function() {
+            validatePhone(true);
+        });
+
+        cityInput.addEventListener('blur', function() {
+            validateCity(true);
+        });
+
+        // Form submission handler
+        $('#submitButton').on('click', function(e) {
+            e.preventDefault();
+            console.log('Button clicked');
+            // Validate all fields and show errors
+            const isFormValid = checkFormValidity(true);
+
+            if (isFormValid) {
+                $('#loader').show();
+                $('#submitButton').prop('disabled', true);
+                const data = {
+                    action: 'send_to_leadsquared',
+                    name: $('#leadformName').val(),
+                    email: $('#leadformEmail').val(),
+                    phone: $('#leadformPhone').val(),
+                    course: $('#leadformCourse').val(),
+                    city: $('#city').val(),
+                    source_url: window.location.href
+                };
+                console.log('Data to be sent:', data);
+                $.post(my_ajax_object.ajax_url, data, function(response) {
+                    $('#loader').hide();
+                    $('#submitButton').prop('disabled', false);
+                    console.log('Response received:', response);
+                    if (response.success) {
+                        // Show success message
+                        const formResponse = document.getElementById('formResponse');
+                        formResponse.innerText = 'Form submitted successfully!';
+                        formResponse.style.color = 'green';
+                        
+                        // Store email in localStorage
+                        localStorage.setItem('ec_email', emailInput.value);
+                        
+                        // Wait briefly to show the success message before redirecting
+                        setTimeout(() => {
+                            // Preserve URL parameters when redirecting
+                            const urlObj = new URL(window.location.href);
+                            const queryString = urlObj.search;
+                            const thankYouURL = `${urlObj.origin}${urlObj.pathname.replace(/\/$/, '')}/thank-you${queryString}`;
+                            console.log('Redirecting to:', thankYouURL);
+                            window.location.href = thankYouURL;
+                        }, 1000); // Wait 1 second before redirecting
+                    } else {
+                        alert('Error: ' + response.data.message);
+                    }
+                }).fail(function(xhr, status, error) {
+                    $('#loader').hide();
+                    $('#submitButton').prop('disabled', false);
+                    alert('An error occurred: ' + error);
+                });
+            }
+        });
+        console.log('Form submission handler set up');
+
+        // Add these lines to ensure form is reset properly after submission
+        function resetForm() {
+            formEl.reset();
+            hideAllErrors();
+            submitButton.disabled = true;
+            
+            // Reset all error messages
+            nameError.style.display = 'none';
+            emailError.style.display = 'none';
+            phoneError.style.display = 'none';
+            courseError.style.display = 'none';
+            cityError.style.display = 'none';
+        }
+    });
+    </script>
+
+
+<!-- batch -->
+<section>
+<div class="container my-5">
+<!-- <h2 class="center-title">UPSC CSE <span class="highlight-text">2024 Batch</span></h2> -->
+  <!-- <div class="batch-section text-center"> -->
+     <!-- <h2 class="fw-bold">UPSC CSE <span class="highlight-text">2023 Batch</span></h2> -->
+      <div class="row mt-4 justify-content-center">
+<!--            <div class="col-md-5 col-sm-12 col-lg-5 mb-4">
+              <div class="card p-3">
+                  <div class="d-flex batch-flex">
+                      <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/Medha-Anand-AIR-13-GS-Classroom-Sociology-and-IGP.webp" alt="Riya Kumari" class="img-fluid batch-img">
+                      <div class="ms-3 batch-content">
+                          <h5>Medha Anand</h5>
+                          <p class="air-rank">AIR 13 <img class="gold-star" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Gold_Star.svg"></p>
+                          <p class="text-muted small">GS Classroom , Sociology and IGP</p>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-5 col-sm-12 col-lg-5 mb-4">
+              <div class="card p-3">
+                  <div class="d-flex batch-flex">
+                      <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/Wardah-Khan-AIR-18-GS-Classroom-Essay.webp" alt="Akshay Sharma" class="img-fluid batch-img">
+                      <div class="ms-3 batch-content">
+                          <h5>Wardah Khan</h5>
+                          <p class="air-rank">AIR 18 <img class="gold-star" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Gold_Star.svg"></p>
+                          <p class="text-muted small">GS Classroom & Essay</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-5 col-sm-12 col-lg-5 mb-4">
+              <div class="card p-3">
+                  <div class="d-flex batch-flex">
+                      <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/Akash-Verma-AIR-20-GS-Mains-TS-Public-Admin.-Optional-Mains-Test-Series-IGP.webp" alt="Gaurav Yadav" class="img-fluid batch-img">
+                      <div class="ms-3 batch-content">
+                          <h5>Akash Verma</h5>
+                          <p class="air-rank">AIR 20 <img class="gold-star" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Gold_Star.svg"></p>
+                          <p class="text-muted small">GS Mains TS, Public Admin Optional, Mains Test Series & IGP</p>
+                         
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-5 col-sm-12 col-lg-5 mb-4">
+              <div class="card p-3">
+                  <div class="d-flex batch-flex">
+                      <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/Pururaj-Singh-Solanki-AIR-21-GS-Classroom-Essay-IGP.webp" alt="Sumitra Tiwari" class="img-fluid batch-img">
+                      <div class="ms-3 batch-content">
+                          <h5>Pururaj Singh Solanki</h5>
+                          <p class="air-rank">AIR 21 <img class="gold-star" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Gold_Star.svg"></p>
+                          <p class="text-muted small">GS Classroom, Essay & IGP </p>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+         <!-- <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/05/rankers-update.webp" alt="rank-list" class="rank-list" style="height:100%";> -->
+          
+      </div>
+  <!-- </div> -->
+</div>
+</section>
+
+<!-- counter -->
+<section class="wow fadeIn py-5 animated" style="visibility: visible; animation-name: fadeIn;">
+    <div class="container">
+        <div class="row counter-container">
+          <div class="counter-1 col-md-6 col-sm-6">
+            <!-- counter -->
+            <div class="col-md-6 col-sm-12 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="300ms">
+              <div class="counter-content">
+              <img class="counter-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/topers.svg" style="background: #FFF5E7;">
+              <div class="number">
+                  <div class="h2_32px text-start counter-count">40</div>
+                  <div class="p_15px text-start">Teachers</div>
+              </div>
+              </div>
+          </div>
+            <!-- end counter -->
+            <!-- counter -->
+            <div class="col-md-6 col-sm-12 bottom-margin text-center counter-section wow fadeInUp sm-margin-bottom-ten animated" data-wow-duration="600ms">
+              <div class="counter-content">
+              <img class="counter-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/excellence.svg" style="background: #E5FFF7;">
+              <div class="number">
+                  <div class="h2_32px text-start counter-count">50</div>
+                  <div class="p_15px text-start">Years of Excellence</div>
+              </div>
+              </div>
+          </div>
+        </div>
+            <!-- end counter -->
+            <!-- counter -->
+            <div class="col-md-3 google-review col-sm-6 bottom-margin-small text-center fadeInUp xs-margin-bottom-ten animated">
+              <img class="google-review-desktop" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/google-review.svg">
+              <img class="google-review-mobile" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/google-review-mobile.svg">
+            </div>
+            <!-- end counter -->
+        </div>
+    </div>
+</section>
+
+<style>
+  .blog-slider__button-prev,
+  .blog-slider__button-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+  }
+  
+  .blog-slider__button-prev {
+      left: 10px;
+  }
+  
+  .blog-slider__button-next {
+      right: 10px;
+  }
+  
+  .blog-slider__button-prev:hover,
+  .blog-slider__button-next:hover {
+      background: rgba(0, 0, 0, 0.8);
+  }
+  
+  </style>
+
+
+  <style>
+    /* Base styles - mobile first */
+.d1 {
+  display: none !important;
+  padding-left: 30px;
+}
+
+.m1 {
+  display: block !important;
+  margin-top: 10px;
+}
+.m2 {
+    display: flex !important;
+  }
+.why-us > ul{
+  padding-left: 100px;
+}
+/* Desktop breakpoint (adjust as needed, e.g., 768px or 992px) */
+@media (min-width: 768px) {
+  .d1 {
+    display: block !important;
+    margin-top: 10px;
+  }
+  .d2 {
+    display: flex !important;
+  }
+  .m1 {
+    display: none !important;
+  }.subtitle{
+    font-size: 14px !important;
+    padding: 8px 10p !important;
+  }.course-years{
+    gap:10px !important;
+  }
+}
+.course-years {
+ flex-wrap: wrap;
+}
+@media only screen and (max-width: 767px) {
+  .c1 {
+    margin-top: 120px;
+  }
+}
+
+  </style>
+  
+  <section class="your-success">
+    <div class="blur-bg">
+      <div class="container">
+        <div class="your-success-title-section animate">
+          
+  <h2 class="center-title">Select Your Optional Subject</h2>
+   <div class="course-years">
+    <div class="subtitle sb1" id="subject-agriculture">Agriculture</div>
+  <div class="subtitle sb1" id="subject-anthropology">Anthropology</div>
+  <div class="subtitle sb1" id="subject-commerce-accountancy">Commerce & Accountancy</div>
+  <div class="subtitle sb1" id="subject-economics">Economics</div>
+  <div class="subtitle sb1" id="subject-geography">Geography</div>
+  <div class="subtitle sb1" id="subject-history">History</div>
+   <div class="subtitle sb1" id="subject-mathematics">Mathematics</div>
+  <div class="subtitle sb1" id="subject-philosophy">Philosophy</div>
+  <div class="subtitle sb1" id="subject-psychology">Psychology</div>
+  <div class="subtitle sb1" id="subject-political-science-ir">Political Science and International Relations</div>
+  
+  <div class="subtitle sb1" id="subject-public-administration">Public Administration</div>
+  <div class="subtitle sb1" id="subject-sociology">Sociology</div>
+</div>
+ 
+        <div class="blog-slider">
+    <div class="blog-slider__wrp swiper-wrapper">
+
+    
+
+    <!-- Agriculture Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Agriculture</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Updated Study Material</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Unit-wise Tests (15 Tests Total)</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">One-on-One Doubt Discussion with Mr. Krushna Bhokare</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Agronomy – Principles and practices of crop production
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Crop Physiology – Exploring physiological aspects of crops
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Agricultural Economics – Economic aspects of agriculture
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Animal Husbandry and Veterinary Science – Livestock management & health
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Agricultural Extension – Dissemination of agricultural information & technology
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Anthropology Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Anthropology</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Clear explanations of complex concepts</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">PYQs discussion and practice</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Real-life examples for better understanding</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Interdisciplinary research methodologies
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Studies on social structure, religion & economic systems
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Integration of Humanities & Sciences perspectives
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Detailed study of Indian Society and Tribes
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Cultural diversity & contemporary challenges
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Focus on government schemes and tribal development
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Commerce & Accountancy Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Commerce & Accountancy</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+     <div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Integrated answer writing practice</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Frequent tests with feedback sessions</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Comprehensive and updated study materials</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Financial Accounting & Auditing
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Business Finance & Corporate Governance
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Economic and Commercial Laws
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Advanced Accounting & Financial Management
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Cost Accounting
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Operations Research – Problem Solving in Business Contexts
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Economics Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Economics</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+     <div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Tests followed by focused discussions</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Handouts and notes with clear explanations</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Coverage of key terms, concepts, Budget & Survey</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Advanced Microeconomics & Macroeconomics
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                International Economics
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Money, Banking & Public Finance
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Growth & Development
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Economic Conditions in India Before and After Independence
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Application of Graphs and Economic Data Interpretation
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Contemporary Policy Analysis and Trends
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Geography Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Geography</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Use of maps, case studies and diagrams</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Emphasis on interlinkages and interdisciplinary approach</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Focused answer writing practice</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Geomorphology, Climatology, Oceanography
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Biogeography & Environmental Geography
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Economic, Population & Settlement Geography
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Regional Planning, Models & Theories
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Geography of India – Physical, Cultural, and Political Aspects
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Resources, Agriculture, Industry, Trade
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Regional Development, Planning & Current Issues
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- History Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">History</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Regular tests with focused discussions</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Simplified explanations of complex concepts</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Practical examples for better understanding</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Ancient India: Indus Valley, Vedic Period, Mauryas, Guptas
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Medieval India: Delhi Sultanate, Mughal Empire, Regional Kingdoms
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                Modern India: Colonial Rule, Indian National Movement, Post-Independence
+              </li>
+              <li class="success-list">
+                <img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg">
+                World History: Renaissance, Industrial Revolution, World Wars, Global Events
+              </li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Mathematics Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Mathematics</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Daily answer writing practice</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">PYQ coverage</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Speed-enhancing problem-solving tips</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Algebra: Group Theory, Ring Theory, Linear Algebra</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Real Analysis: Sequences, Series, Continuity, Differentiability</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Complex Analysis: Functions, Integrals</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Linear Programming: Optimization with Constraints</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> ODEs: Solutions of Ordinary Differential Equations</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> PDEs: Applications of Partial Derivatives</li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 60,000 (Online) | Rs. 64,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Philosophy Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Philosophy</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Clear explanations of complex concepts</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Real-life examples for better understanding</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Tests with feedback sessions</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Indian Philosophy: Nyaya, Samkhya, Vedanta, etc.</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Western Philosophy: Plato, Aristotle, Descartes, Hume</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Socio-Political Philosophy: Justice, Liberty, Rights</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Philosophy of Religion: God, Experience, Faith</li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Psychology Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Psychology</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Classes Conducted 2.5 Hours 6 Days a Week</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Comprehensive coverage of Paper 1 and 2</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Regular Assessments and Answer Writing Practice</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Cognitive Psychology, Learning, Motivation, and Perception</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Personality Theories, Intelligence, and Developmental Psychology</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Social Psychology, Psychological Testing, and Measurement</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Clinical Psychology, Organizational Behavior, and Applied Fields</li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Political Science and International Relations Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Political Science and International Relations</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Strategic sessions for concepts and current issues</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Clear explanations and exam ready content</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">PSIR Mentorship for personalized guidance</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Political Theory, State Theories, Justice, Equality</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Indian Nationalism, Constitution, Federalism, Party System</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Globalisation, International Relations, Comparative Politics</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> India & the World: NAM, UN System, South Asia, Global Powers</li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Public Administration Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Public Administration</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Clear explanations of complex concepts</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Answer writing practice + 3 class tests</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Concise, well-researched study materials</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Administrative Theories, Thinkers, and Concepts</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Organizational Behavior, Development Administration, and Financial Management</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Evolution and Framework of Indian Administration</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Law and Order, Personnel Administration, and District Administration</li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sociology Section -->
+<div class="blog-slider__item swiper-slide">
+  <div class="blog-slider__content">
+    <div class="your-success-container">
+      <div class="row">
+        <div class="col-md-6 fade-in-left">
+          <h2 class="h4-color-title">Sociology</h2>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 d-none d-md-block fade-in-right">
+          <div class="linkWrap">
+            <a href="#" class="link style-2">
+              <span class="mask">
+                <div class="link-container">
+                  <span class="link-title1 title">Apply Now</span>
+                  <span class="link-title2 title">Apply Now</span>
+                </div>
+              </span>
+              <div class="link-icon">
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+                <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+<div class="your-success-short-details animate">
+  <div class="your-success-status green">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/general.svg">
+    <div class="green-color">Real-life examples</div>
+  </div>
+  <div class="your-success-status blue">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Lectures.svg">
+    <div class="blue-color">Integrated answer writing practice</div>
+  </div>
+  <div class="your-success-status orang">
+    <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/hours.svg">
+    <div class="orang-color">Tests with feedback session</div>
+  </div>
+</div>
+
+
+      <div class="your-success-list-container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 fade-in-left">
+            <div><strong>Paper I:</strong></div>
+            <ul style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Classical Thinkers: Marx, Durkheim, Weber</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Contemporary Thinkers: Giddens, Bourdieu, etc.</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-sm-12 load-more-container fade-in-right">
+            <div><strong>Paper II:</strong></div>
+            <ul class="load-more-content" style="list-style: none; padding: 0px; font-size: 18px;">
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Industrial Sociology: Industry’s impact on society</li>
+              <li class="success-list"><img class="checkbox-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/checkbox.svg"> Theories and Models of Social Change & Development</li>
+            </ul>
+          </div>
+
+          <div class="course-2">Fees: Rs. 50,000 (Online) | Rs. 54,000 (Offline)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+      <!--  -->
+    </div>
+    
+   <!-- Next/Prev buttons (hidden on mobile via JS) -->
+      <div class="blog-slider__button-prev">❮</div>
+      <div class="blog-slider__button-next">❯</div>
+  
+      <!-- Pagination (only visible on mobile via JS) -->
+      <div class="blog-slider__pagination"></div>
+  </div>
+      
+      </div>
+    </div>
+  </section>
+  
+
+<!-- why choose us -->
+<section class="why-choose">
+  <div class="container">
+    <div class="why-us row flex-column-reverse flex-md-row">
+      <div class="col-md-6 col-sm-12 VM-building">
+        <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/higilight.png" class="highlight-image">
+      </div>
+      <div class="col-md-6 col-sm-12 tab-padding">
+        <h2 class="h2-color-title">Why <span class="highlights">Choose</span> Vajiram & Ravi UPSC Optional Subject Coaching?
+        </h2>
+        <div class="common-text">Good Scores on the Optional Papers (I & II) significantly boosts the chances of getting
+          selected in the UPSC Civil Services Exam. It adds to the score of the Main Exam’s cut off which is becoming
+          increasingly competitive day by day. The first step in this direction is to choose the most appropriate
+          optional subject, based on their educational background, interest, and familiarity, and, most importantly, the
+          aspirant's level of confidence in their ability to clear the exam in that subject.
+          <div class="m1">The main objective of Vajiram & Ravi <b>Optional Subject Programme 2026</b> for the Civil
+            Services Exam is to give students a solid grounding in the Optional Subject-Paper I & II complete syllabus,
+            as well as direction on how to study, use this knowledge to structure their answers to fetch good marks.
+          </div>
+          <div class="m1
+">The Optional Subject Programme 2026 is offered in <b>both Classroom and LIVE-Online mode.</b>
+          </div>
+          <br>
+          <span class="highlights m1" style="
+    font-weight: 600;
+    font-size: 24px;">
+            Features of our Optional Subject Programme </span>
+          <br>
+
+          <ul class="m1">
+            <li>2.5-hour sessions, 6 days a week, Class Schedule.</li>
+            <li>Comprehensive Syllabus Coverage</li>
+            <li>Clarity in Concepts</li>
+            <li>Practical Examples</li>
+            <li>Answer Writing Practice</li>
+            <li>Regular Class Tests</li>
+            <li>Study Materials</li>
+          </ul>
+        </div>
+ <div class="m1" style="margin-top:15px;">📍Our Location in New Delhi: Vajiram & Ravi, 1-B/7, Pusa Road, Old Rajinder Nagar,
+          New Delhi - 110060</div>
+
+
+
+
+       
+      </div>
+   
+      <div class="d1" style="padding-top: 40px;">The main objective of Vajiram & Ravi <b>Optional Subject Programme 2026</b> for the Civil Services
+        Exam is to give students a solid grounding in the Optional Subject-Paper I & II complete syllabus, as well as
+        direction on how to study, use this knowledge to structure their answers to fetch good marks.
+      </div>
+      <div class="d1
+">The Optional Subject Programme 2026 is offered in <b>both Classroom and LIVE-Online mode.</b>
+      </div>
+      <br>
+      <span class="highlights d1" style="
+    font-weight: 600;
+    font-size: 24px;">
+        Features of our Optional Subject Programme </span>
+      <br>
+
+      <ul class="d1">
+        <li>2.5-hour sessions, 6 days a week, Class Schedule.</li>
+        <li>Comprehensive Syllabus Coverage</li>
+        <li>Clarity in Concepts</li>
+        <li>Practical Examples</li>
+        <li>Answer Writing Practice</li>
+        <li>Regular Class Tests</li>
+        <li>Study Materials</li>
+      </ul>
+       <div class="d1" style="margin-top:15px; padding-bottom: 40px;">📍Our Location in New Delhi: Vajiram & Ravi, 1-B/7, Pusa Road, Old Rajinder Nagar,
+          New Delhi - 110060</div>
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+<!-- Expert Faculty -->
+<section class="students-achieve-profile">
+    <div class="container mt-5">
+      <div class="row align-items-center">
+          <div class="col-md-4 text-md-start text-center wd-90">
+              <h2 class="achieve-title mb-4"><span class="highlights">Nurturing</span> the Steel Frame of India Since 1976</h2>
+			  <p class="common-text">Our expert faculty is dedicated to inspiring and guiding UPSC aspirants, helping them reach their full potential and perform at their best. As the <b>Best UPSC Optional Subject Coaching Centre for UPSC in India</b>, we provide top-tier mentorship and structured learning to ensure aspirants achieve success in the <b>
+          Civil Services Examination.
+        </b></p>
+              <div class="float-md-start">
+                <a href="#" class="link style-2 mt-3" style="background-color: #FF8C00;">
+                    <span class="mask">
+                        <div class="link-container">
+                            <span class="link-title1 title">Enroll With Best Mentors</span>
+                            <span class="link-title2 title">Enroll With Best Mentors</span>
+                        </div>
+                    </span>
+                    <div class="link-icon">
+                        <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                            <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                        </svg>
+                        <svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+                            <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+          </div>
+          <div class="col-md-8 wd-hidden">
+              <div class="mentor-slider-container">
+                  <div class="mentor-slider">
+                      <div class="mentor-card">
+                          <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/PS.-Ravindran.webp" alt="Ravindran">
+                          <h5>PS. Ravindran</h5>
+                          <p>45+ Years Experience</p>
+                      </div>
+                      <div class="mentor-card">
+                        <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/SK-Manocha.webp" alt="SK Manocha">
+                        <h5>SK Manocha</h5>
+                        <p>30+ Years Experience</p>
+                    </div>
+                    <div class="mentor-card">
+                        <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/Brijender-Singh.webp" alt="Brijender Singh">
+                        <h5>Brijender Singh</h5>
+                        <p>15+ Years Experience</p>
+                    </div>
+                      <div class="mentor-card">
+                          <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/Md.-Rizwan.webp" alt="Md. Rizwan">
+                          <h5>Md. Rizwan</h5>
+                          <p>15+ Years Experience </p>
+                      </div>
+                      <div class="mentor-card">
+                          <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/md.-tarique.webp" alt="md. tariquer">
+                          <h5>Md. Tarique</h5>
+                          <p>20+ Years Experience</p>
+                      </div>
+                      <div class="mentor-card">
+                        <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/Mukul-pathak.webp" alt="Mukul pathak">
+                        <h5>Mukul pathak</h5>
+                        <p>28+ Years Experience</p>
+                    </div>
+                     <div class="mentor-card">
+                        <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/03/Shyam-sundar.webp" alt="Shyam sundar">
+                        <h5>Shyam Sundar</h5>
+                        <p>20+ Years Experience</p>
+                    </div>
+                    
+                     
+                  </div>
+    
+              </div>
+  
+              <!-- ✅ Move Buttons Below the Slider -->
+              <div class="slide-buttons">
+                <button id="prevBtn" class="custom-prev">&#10094;</button>
+                <button id="nextBtn" class="custom-next">&#10095;</button>
+            </div>
+  
+  
+          </div>
+      </div>
+    </div>
+  </section>
+
+<section class="students-achieve ad-section">
+<div class="container ad-section-container">
+    <div class="row align-items-center mb-center d-flex">
+    <div class="col-md-8 col-sm-12 text-md-start text-left">
+            <h2 class="achieve-title"><span class="highlights">38 Rank Holders</span> in Top 50 are from Various Courses of Vajiram & Ravi</h2>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <a class="text-decoration-none mb-float" href="#" style="float:right;">
+                <button type="button" class="btn btn-primary contact-btn">To Join our Toppers List</button></a>
+                
+            </div>
+        </div>
+	</div>
+</section>  
+
+<!-- notebook -->
+<section class="notebook">
+  <div class="container">
+    <div class="row align-items-center d-flex flex-column-reverse flex-md-row">
+        <div class="col-md-6">
+            <div class="p-4 notebook-paper">
+                <ul class="list-unstyled">
+                    <li class="list-mb-3"><img class="right" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/rightsyb.svg"> Comprehensive Guidance with an Integrated Approach</li>
+                    <li class="list-mb-3"><img class="right" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/rightsyb.svg"> Subject-Specialized Faculty with Decades of Experience</li>
+                    <li class="list-mb-3"><img class="right" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/rightsyb.svg"> Focused Study Materials and Regular Updates</li>
+                    <li class="list-mb-3"><img class="right" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/rightsyb.svg"> Development of Analytical and Critical Thinking Skills</li>
+                    <li class="list-mb-3"><img class="right" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/rightsyb.svg">Unmatched Mentor Support and Guidance</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 content-center mb-4">	
+          <h2 class="achieve-title">Why Vajiram & Ravi for UPSC Preparation in Delhi?</h2>
+			<p>With thousands of toppers, Vajiram & Ravi stands out as the <b>Best UPSC Coaching in Delhi for English medium</b> aspirants. Our expert faculty, focused study materials, and proven strategies help students build analytical thinking and stay updated with regular insights. As a leading institute offering <b>Best IAS Classes in Delhi</b>, we provide unmatched mentor support to guide you toward <b>UPSC success</b>.</p>
+            <a class="text-decoration-none mb-3" href="#"><button type="button" class="btn btn-primary watch-btn">Download Brochure &rarr;</button></a>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<!-- testimonial -->
+<section class="testimonial-section">
+  <div class="container">
+    <div class="testimonial-head">  
+    <h2 class="mb-4 title-testimonial">What Our <span class="highlight-text">Students</span> Say</h2>
+    <!-- Custom Navigation Buttons -->
+    <div class="mt-4 text-center testimonial-card-next-btn">
+      <button class="custom-prev">❮</button>
+      <button class="custom-next">❯</button>
+  </div>
+    </div>
+      
+      <!-- Slick Slider -->
+      <div class="testimonial-slider autoplay">
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Pratham Singh</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“Vajiram and Ravi excels in preparing students for UPSC Mains preparation. Their clear and detailed study material, answer writing practice, and helpful test series make it easier to understand and perform well.”</p>
+            <!--<div class="student-info">-->
+            <!--    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="student-img" alt="Anjali">-->
+            <!--    <div>-->
+            <!--        <strong>Anjali</strong>-->
+            <!--        <p class="m-0 text-muted">IAS</p>-->
+            <!--    </div>-->
+            <!--</div>-->
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Soundarya Betraaj</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“Vajiram and Ravi is undoubtedly the best institute for UPSC interview preparation. Their mock interviews are conducted by panelists who provide valuable feedback, helping students like me build confidence and refine the communication skills.”</p>
+            <!--<div class="student-info">-->
+            <!--    <img src="https://randomuser.me/api/portraits/men/46.jpg" class="student-img" alt="Amit Kumar">-->
+            <!--    <div>-->
+            <!--        <strong>Amit Kumar</strong>-->
+            <!--        <p class="m-0 text-muted">UPSC</p>-->
+            <!--    </div>-->
+            <!--</div>-->
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Shivam Gupta</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐ <span class="badge bg-warning text-dark">4.0</span></div>
+            <p>“Vajiram and Ravi provides best study material and their mock tests helps a lot in UPSC preparation. Students also get regular doubt session for better understanding. This is the best IAS coaching in India.”</p>
+            <!--<div class="student-info">-->
+            <!--    <img src="https://randomuser.me/api/portraits/men/50.jpg" class="student-img" alt="Rahul Singh">-->
+            <!--    <div>-->
+            <!--        <strong>Rahul Singh</strong>-->
+            <!--        <p class="m-0 text-muted">Student</p>-->
+            <!--    </div>-->
+            <!--</div>-->
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Rahul Pratap Singh</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“Vajiram and Ravi's test series has been incredibly helpful in my UPSC preparation. The quality and depth of the questions are outstanding, and I was pleasantly surprised to find that several questions in the UPSC exam were similar to what I'd practiced here. The test series thoroughly covers a wide range of topics and provides detailed explanations, which helps in understanding complex concepts. Highly recommend for anyone serious about cracking the UPSC exam.”</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Anjali Sharma</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“There mentorship and guidance helped me in my journey to Prelims and Mains. As the teachers are responsibly involved in tracing the progress of each student, we are really grateful to study here.”</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Ankush Negi</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“ Excellent choice of UPSC aspirants. Their teaching methodology is great, and the daily assignments really help a lot in exam preparation.”</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Ansh Rawat</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“Thank you Vajiram and Ravi Institute for amazing mentorship and guidance in my journey to Prelims and Mains. As the teachers are responsibly involved in tracing the progress of each student, we are really grateful to study here”</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Bhumi ambawat</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“Vajiram and Ravi at Pusa Road has truly set the standard for IAS coaching. The faculty is top-notch, and they break down complex topics into easily understandable concepts. Their test series and notes have been crucial in my preparation for IAS exam. I would really recommend this institute to anybody aiming UPSC.”</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Varun Sharma</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“Vajiram & Ravi's environment is very competitive, which really pushes you to give your best. Their test series, especially for Mains, is extremely useful. They regularly guide and mentor giving cheat sheets to writing answers effectively.”</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-tb">
+                <h5>Bhumi Ambawat</h5>
+                <img class="quote-icon" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/quote.png">
+            </div>
+            <div class="rating">⭐⭐⭐⭐⭐ <span class="badge bg-warning text-dark">5.0</span></div>
+            <p>“Great institute for working professionals. They have weekend batches, which are really helpful in balancing work and passion.”</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ad section -->
+<section class="ad-section">
+  <div class="container ad-section-container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 text-center text-lg-start pd-50">
+        <h2 class="mb-4 title-testimonial">Your UPSC Success Starts Here <span class="highlight-text">Secure Your Spot Now!</span></h2>
+        <div class="ad-buttons d-flex flex-column-reverse flex-md-row">
+          <a href="#" class="btn btn-secondory btn-register">Register Now > </a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/markarrow.svg" alt="arrow" class="right-arrow">
+        <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/ad.webp" alt="Students" class="img-fluid ad-image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- faq -->
+<section class="faq-section container">
+  <div class="faq-header">
+      <p class="text-uppercase fw-bold" style="align-items: center;display: flex; line-height: 1.5; gap: 5px;"><img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/organstar.svg">FAQs</p>
+      <h2>Have Questions? <br><span>We’ve Got You Covered</span></h2>
+  </div>
+
+  <!-- Bootstrap Accordion for FAQ -->
+  <div class="accordion mt-4" id="faqAccordion">
+      <div class="accordion-item">
+          <h2 class="accordion-header" id="faq1">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                   01. What is the duration of Optional Subject Programme?
+              </button>
+          </h2>
+          <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Vajiram & Ravi Optional Subject Programme is conducted for a duration of 5.5-6 months.
+              </div>
+          </div>
+      </div>
+
+      <div class="accordion-item">
+          <h2 class="accordion-header" id="faq2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                  02. Are class tests included in Optional Subject Classes? 	
+              </button>
+          </h2>
+          <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                  Yes, Class tests are included in Vajiram & Ravi Optional Subject Classes.
+              </div>
+          </div>
+      </div>
+
+      <div class="accordion-item">
+          <h2 class="accordion-header" id="faq3">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                  03. Are Optional Subject classes available in Online Mode? 
+              </button>
+          </h2>
+          <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                  Yes, our Optional Subject Classes are available in Offline and Online Mode. 
+              </div>
+          </div>
+      </div>
+
+      <div class="accordion-item">
+          <h2 class="accordion-header" id="faq4">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                  04. Are PYQs covered in Optional Subject Course?
+              </button>
+          </h2>
+          <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                 Yes, Vajiram & Ravi Optional Subject Course includes PYQ analysis along with Optional Syllabus.
+              </div>
+          </div>
+      </div>
+
+      <div class="accordion-item">
+          <h2 class="accordion-header" id="faq5">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                  05. How to learn Mains answer writing for Optional Subject?
+              </button>
+          </h2>
+          <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                  To learn Mains Answer Writing, one should begin by joining an Optional Subject Programme.
+              </div>
+          </div>
+      </div>
+
+<!--       <div class="accordion-item">
+          <h2 class="accordion-header" id="faq6">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
+                  06. Can I switch between online and offline classes?
+              </button>
+          </h2>
+          <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                 Yes, one can switch between online and offline classes after taking permission from admin officer. 
+              </div>
+          </div>
+      </div> -->
+  </div>
+
+  <!-- Call to Action -->
+  <div class="faq-footer">
+      <p class="mt-4">Still have more questions?</p>
+      <div class="d-flex reachbtn">
+      <a href="#" class="btn btn-dark">Reach out to us</a>
+      <a href="#" class="btn btn-orange">➜</a>
+      </div>
+  </div>
+</section>
+
+<!-- internal review -->
+
+<section class="internal-review-section">
+  <div class="internal-review-slider container">
+      <div class="internal-review-card">
+        <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/ravi.webp" class="internal-review-per-img-mobile" alt="Testimonial">
+          <div class="internal-review-content">
+              <h5>P S Ravindran</h5>
+              <small>(Director: Vajiram and Ravi)</small>
+              <img class="quote-image" src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/Icon.png" alt="Quote Icon">
+          </div>
+          <img src="https://lp.vajiramandravi.com/wp-content/uploads/2025/02/ravi.webp" class="internal-review-per-img" alt="Testimonial">
+          <div class="internal-review-comments">
+          <p class="des-italic"><strong>UPSC Civil Service Exam is a marathon, not a sprint. Success comes to those who endure and stay committed.</strong></p>
+          
+          </div>
+      </div>
+	  </div>
+</section>
+
+
+
+<!-- footer -->
+<section class="subscribe-section footer-form mt-5 mt-sm-0" > <div class="container c1" >
+      <div class="row mt-5 mt-sm-0">
+          <div class="col-md-3 col-sm-0 "></div>
+          <div class="col-md-6 col-sm-12">
+              <div class="form-box">
+        <h2 class="form-title">Take the First Step Towards Your  <span class="highlights">UPSC Dream</span></h2>
+        <!--<p class="steps">Take the First Step Towards Your UPSC Dream</p>-->
+        <div class="fill">Fill out our registration form and get started today!</div>
+  <form id="formEl2">
+    <div class="form-group">
+        <div class="input-container">
+            <i class="fa-regular fa-user"></i>
+            <input class="form-control" id="leadformName2" type="text" name="Name" placeholder="Enter your name" required>
+        </div>
+        <span id="nameError2" class="error-message">Please enter a valid name.</span>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-container">
+                    <i class="fa-regular fa-id-badge"></i>
+                    <input class="form-control" id="leadformPhone2" type="text" name="Phonenumber" placeholder="Contact" maxlength="10" required>
+                </div>
+                <span id="phoneError2" class="error-message">Please enter a valid 10-digit phone number.</span>
+            </div>
+            <div class="col-md-6 form-padding">
+                <div class="input-container">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input class="form-control" id="leadformEmail2" type="email" name="Email" placeholder="Enter your email" required>
+                </div>
+                <span id="emailError2" class="error-message">Please enter a valid email address.</span>
+            </div>
+        </div>
+    </div>
+    <div class="select-container">
+        <i class="fa-regular fa-clone"></i>
+        <select class="form-select" id="leadformCourse2" required>
+            <option selected disabled value="">Select Your Interested Course</option>
+          <option value="Agriculture">Agriculture</option>
+<option value="Anthropology">Anthropology</option>
+<option value="Commerce & Accountancy">Commerce & Accountancy</option>
+<option value="Economics">Economics</option>
+<option value="Geography">Geography</option>
+<option value="History">History</option>
+<option value="Mathematics">Mathematics</option>
+<option value="Philosophy">Philosophy</option>
+<option value="Political Science and International Relations"><span class="d-none d-sm-block">Political Science and International Relations</span>
+<span class="d-block d-sm-none">PSIR</span></option>
+<option value="Psychology">Psychology</option>
+<option value="Public Administration">Public Administration</option>
+<option value="Sociology">Sociology</option></select>
+        <span id="courseError2" class="error-message">Please select a valid course.</span>
+    </div>
+    <div class="form-group">
+        <div class="input-container">
+            <i class="fa-solid fa-map-pin"></i>
+            <input class="form-control" id="city2" type="text" name="City" placeholder="Enter your city" required>
+        </div>
+        <span id="cityError2" class="error-message">Please enter your city.</span>
+    </div>
+    <div style="display:flex; align-items: center;">
+        <button type="submit" id="submitButton2" class="btn btn-primary submitbtn" disabled>Submit Now!</button>
+        <span class="loader" id="loader2"></span>
+    </div>
+</form>
+<div id="formResponse2"></div>
+
+
+        <!--<div class="indicate">Already Have An Account? <a href="#" style="text-decoration: none;">Sign In</a></div>-->
+    </div>
+          </div>
+          <div class="col-md-3 col-sm-0"></div>
+          </div>
+     
+  </div>
+</section>
+
+<style>
+	
+	
+.spinner {
+            display: flex;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border-left-color: #fb5621;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            display: none;
+            margin-top: 5px;
+        }
+ #loader {
+            display: none;
+            margin: 10px auto;
+            margin-left: 15px;
+        }
+.button-and-loader {
+            display: flex;
+            align-items: center;
+        }
+	.loader {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: none;
+  border-top: 5px solid orange;
+  border-right: 5px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-left: 15px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+    
+    
+</style>
+
+
+ <script>
+  jQuery(document).ready(function($) {
+    // Get all form elements properly for the second form
+    const nameInput = document.getElementById('leadformName2');
+    const emailInput = document.getElementById('leadformEmail2');
+    const phoneInput = document.getElementById('leadformPhone2');
+    const courseSelect = document.getElementById('leadformCourse2');
+    const cityInput = document.getElementById('city2');
+    const submitButton = document.getElementById('submitButton2');
+    const formEl = document.getElementById('formEl2');
+    const loader = document.getElementById('loader2');
+
+    // Error message elements
+    const nameError = document.getElementById('nameError2');
+    nameError.innerText = 'Please enter a valid name.';
+
+    const emailError = document.getElementById('emailError2');
+    emailError.innerText = 'Please enter a valid email address.';
+
+    const phoneError = document.getElementById('phoneError2');
+    phoneError.innerText = 'Please enter a valid 10-digit phone number.';
+
+    const courseError = document.getElementById('courseError2');
+    courseError.innerText = 'Please select a course.';
+
+    const cityError = document.getElementById('cityError2');
+    cityError.innerText = 'Please enter your city.';
+
+    // Initially disable submit button
+    submitButton.disabled = true;
+
+    // Hide all error messages
+    function hideAllErrors() {
+        nameError.style.display = 'none';
+        emailError.style.display = 'none';
+        phoneError.style.display = 'none';
+        courseError.style.display = 'none';
+        cityError.style.display = 'none';
+    }
+
+    // Validation functions
+    function validateName(showError = false) {
+        const nameRegex = /^[a-zA-Z\s.']{2,50}$/;
+        const isValid = nameRegex.test(nameInput.value.trim());
+        if (showError) {
+            nameError.style.display = isValid ? 'none' : 'block';
+            nameError.innerText = !nameInput.value.trim() ?
+                'Name is required' :
+                'Please enter a valid name (2-50 characters, letters only)';
+        }
+        return isValid;
+    }
+
+    function validateEmail(showError = false) {
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        const isValid = emailRegex.test(emailInput.value.trim());
+        if (showError) {
+            emailError.style.display = isValid ? 'none' : 'block';
+            emailError.innerText = !emailInput.value.trim() ?
+                'Email is required' :
+                'Please enter a valid email address';
+        }
+        return isValid;
+    }
+
+    function validatePhone(showError = false) {
+        const phoneRegex = /^[1-9]\d{9}$/;
+        const isValid = phoneRegex.test(phoneInput.value.trim());
+        if (showError) {
+            phoneError.style.display = isValid ? 'none' : 'block';
+            phoneError.innerText = !phoneInput.value.trim() ?
+                'Phone number is required' :
+                'Please enter a valid 10-digit mobile number';
+        }
+        return isValid;
+    }
+
+    function validateCity(showError = false) {
+        const cityRegex = /^[a-zA-Z\s.]{2,30}$/;
+        const isValid = cityRegex.test(cityInput.value.trim());
+        if (showError) {
+            cityError.style.display = isValid ? 'none' : 'block';
+            cityError.innerText = !cityInput.value.trim() ?
+                'City is required' :
+                'Please enter a valid city name';
+        }
+        return isValid;
+    }
+
+    function validateCourse(showError = false) {
+        const isValid = courseSelect.value !== "";
+        if (showError) {
+            courseError.style.display = isValid ? 'none' : 'block';
+            courseError.innerText = 'Please select a course';
+        }
+        return isValid;
+    }
+
+    // Function to check form validity and update submit button
+    function checkFormValidity(showErrors = false) {
+        const isNameValid = validateName(showErrors);
+        const isEmailValid = validateEmail(showErrors);
+        const isPhoneValid = validatePhone(showErrors);
+        const isCourseValid = validateCourse(showErrors);
+        const isCityValid = validateCity(showErrors);
+
+        submitButton.disabled = !(isNameValid && isEmailValid && isPhoneValid &&
+                            isCourseValid && isCityValid);
+
+        return !submitButton.disabled;
+    }
+
+    // Input event listeners for real-time validation and error message updates
+    nameInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^a-zA-Z\s.']/g, '');
+        if (nameError.style.display === 'block') {
+            validateName(true);
+        }
+        checkFormValidity(false);
+    });
+
+    phoneInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        if (this.value.length > 10) {
+            this.value = this.value.slice(0, 10);
+        }
+
+        if (phoneError.style.display === 'block') {
+            if (validatePhone(false)) {
+                phoneError.style.display = 'none';
+            }
+        }
+        checkFormValidity(false);
+    });
+
+    emailInput.addEventListener('input', function() {
+        if (emailError.style.display === 'block') {
+            if (validateEmail(false)) {
+                emailError.style.display = 'none';
+            }
+        }
+        checkFormValidity(false);
+    });
+
+    cityInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^a-zA-Z\s.]/g, '');
+        if (cityError.style.display === 'block') {
+            validateCity(true);
+        }
+        checkFormValidity(false);
+    });
+
+    // Blur (focus lost) event listeners for validation
+    nameInput.addEventListener('blur', function() {
+        validateName(true);
+    });
+
+    emailInput.addEventListener('blur', function() {
+        validateEmail(true);
+    });
+
+    phoneInput.addEventListener('blur', function() {
+        validatePhone(true);
+    });
+
+    cityInput.addEventListener('blur', function() {
+        validateCity(true);
+    });
+
+    // Form submission handler
+    $('#submitButton2').on('click', function(e) {
+        e.preventDefault();
+        console.log('Button clicked');
+        // Validate all fields and show errors
+        const isFormValid = checkFormValidity(true);
+
+        if (isFormValid) {
+            $('#loader2').show();
+            $('#submitButton2').prop('disabled', true);
+            const data = {
+                action: 'send_to_leadsquared',
+                name: $('#leadformName2').val(),
+                email: $('#leadformEmail2').val(),
+                phone: $('#leadformPhone2').val(),
+                course: $('#leadformCourse2').val(),
+                city: $('#city2').val(),
+                source_url: window.location.href
+            };
+            console.log('Data to be sent:', data);
+            $.post(my_ajax_object.ajax_url, data, function(response) {
+                $('#loader2').hide();
+                $('#submitButton2').prop('disabled', false);
+                console.log('Response received:', response);
+                if (response.success) {
+                    // Show success message
+                    const formResponse = document.getElementById('formResponse2');
+                    formResponse.innerText = 'Form submitted successfully!';
+                    formResponse.style.color = 'green';
+
+                    // Store email in localStorage
+                    localStorage.setItem('ec_email', emailInput.value);
+
+                    // Wait briefly to show the success message before redirecting
+                    setTimeout(() => {
+                        // Preserve URL parameters when redirecting
+                        const urlObj = new URL(window.location.href);
+                        const queryString = urlObj.search;
+                        const thankYouURL = `${urlObj.origin}${urlObj.pathname.replace(/\/$/, '')}/thank-you${queryString}`;
+                        console.log('Redirecting to:', thankYouURL);
+                        window.location.href = thankYouURL;
+                    }, 1000); // Wait 1 second before redirecting
+                } else {
+                    alert('Error: ' + response.data.message);
+                }
+            }).fail(function(xhr, status, error) {
+                $('#loader2').hide();
+                $('#submitButton2').prop('disabled', false);
+                alert('An error occurred: ' + error);
+            });
+        }
+    });
+    console.log('Form submission handler set up');
+
+    // Add these lines to ensure form is reset properly after submission
+    function resetForm() {
+        formEl.reset();
+        hideAllErrors();
+        submitButton.disabled = true;
+
+        // Reset all error messages
+        nameError.style.display = 'none';
+        emailError.style.display = 'none';
+        phoneError.style.display = 'none';
+        courseError.style.display = 'none';
+        cityError.style.display = 'none';
+    }
+});
+
+		
+		
+    </script>
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
+  
+    <script>
+   
+  document.addEventListener("DOMContentLoaded", function () {
+      var isMobile = window.innerWidth <= 768; // Detect mobile devices
+  
+      var swiper = new Swiper(".blog-slider", {
+          spaceBetween: 30,
+          effect: "fade",
+          loop: true, // Enable looping
+          allowTouchMove: isMobile, // Allow swipe only on mobile
+          mousewheel: isMobile, // Enable scrolling only on mobile
+          autoHeight: true,
+  
+          pagination: isMobile
+              ? {
+                    el: ".blog-slider__pagination",
+                    clickable: true,
+                }
+              : false, // Disable pagination on desktop
+  
+          navigation: isMobile
+              ? false // Hide navigation on mobile
+              : {
+                    nextEl: ".blog-slider__button-next",
+                    prevEl: ".blog-slider__button-prev",
+                },
+  
+          on: {
+              slideChange: function () {
+                  document.getElementById("subject-agriculture").classList.remove("active-bg");
+document.getElementById("subject-anthropology").classList.remove("active-bg");
+document.getElementById("subject-commerce-accountancy").classList.remove("active-bg");
+document.getElementById("subject-economics").classList.remove("active-bg");
+document.getElementById("subject-geography").classList.remove("active-bg");
+document.getElementById("subject-history").classList.remove("active-bg");
+document.getElementById("subject-mathematics").classList.remove("active-bg");
+document.getElementById("subject-philosophy").classList.remove("active-bg");
+document.getElementById("subject-political-science-ir").classList.remove("active-bg");
+document.getElementById("subject-psychology").classList.remove("active-bg");
+document.getElementById("subject-public-administration").classList.remove("active-bg");
+document.getElementById("subject-sociology").classList.remove("active-bg");
+
+                  let currentIndex = this.realIndex; // Adjust for loop mode
+  
+                     if (currentIndex === 0) {
+        document.getElementById("subject-agriculture").classList.add("active-bg");
+    } else if (currentIndex === 1) {
+        document.getElementById("subject-anthropology").classList.add("active-bg");
+    } else if (currentIndex === 2) {
+        document.getElementById("subject-commerce-accountancy").classList.add("active-bg");
+    } else if (currentIndex === 3) {
+        document.getElementById("subject-economics").classList.add("active-bg");
+    } else if (currentIndex === 4) {
+        document.getElementById("subject-geography").classList.add("active-bg");
+    } else if (currentIndex === 5) {
+        document.getElementById("subject-history").classList.add("active-bg");
+    } else if (currentIndex === 6) {
+        document.getElementById("subject-mathematics").classList.add("active-bg");
+    } else if (currentIndex === 7) {
+        document.getElementById("subject-philosophy").classList.add("active-bg");
+    } else if (currentIndex === 8) {
+        document.getElementById("subject-political-science-ir").classList.add("active-bg");
+    } else if (currentIndex === 9) {
+        document.getElementById("subject-psychology").classList.add("active-bg");
+    } else if (currentIndex === 10) {
+        document.getElementById("subject-public-administration").classList.add("active-bg");
+    } else if (currentIndex === 11) {
+        document.getElementById("subject-sociology").classList.add("active-bg");
+    }
+              },
+          },
+      });
+  
+      // Set initial active class
+      document.getElementById("subject-agriculture").classList.add("active-bg");
+  
+ document.getElementById("subject-agriculture").addEventListener("click", function () {
+    swiper.slideToLoop(0);
+});
+
+document.getElementById("subject-anthropology").addEventListener("click", function () {
+    swiper.slideToLoop(1);
+});
+
+document.getElementById("subject-commerce-accountancy").addEventListener("click", function () {
+    swiper.slideToLoop(2);
+});
+
+document.getElementById("subject-economics").addEventListener("click", function () {
+    swiper.slideToLoop(3);
+});
+
+document.getElementById("subject-geography").addEventListener("click", function () {
+    swiper.slideToLoop(4);
+});
+
+document.getElementById("subject-history").addEventListener("click", function () {
+    swiper.slideToLoop(5);
+});
+
+document.getElementById("subject-mathematics").addEventListener("click", function () {
+    swiper.slideToLoop(6);
+});
+
+document.getElementById("subject-philosophy").addEventListener("click", function () {
+    swiper.slideToLoop(7);
+});
+
+document.getElementById("subject-political-science-ir").addEventListener("click", function () {
+    swiper.slideToLoop(8);
+});
+
+document.getElementById("subject-psychology").addEventListener("click", function () {
+    swiper.slideToLoop(9);
+});
+
+document.getElementById("subject-public-administration").addEventListener("click", function () {
+    swiper.slideToLoop(10);
+});
+
+document.getElementById("subject-sociology").addEventListener("click", function () {
+    swiper.slideToLoop(11);
+});
+
+  
+      // Hide Prev/Next buttons on mobile
+      if (isMobile) {
+          document.querySelector(".blog-slider__button-next").style.display = "none";
+          document.querySelector(".blog-slider__button-prev").style.display = "none";
+      } else {
+          document.querySelector(".blog-slider__pagination").style.display = "none"; // Hide pagination on desktop
+      }
+  });
+  
+  
+    </script>
+<?php 
+    get_footer();
+?>
