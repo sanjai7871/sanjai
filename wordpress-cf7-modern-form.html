@@ -1,0 +1,151 @@
+<!-- WordPress Contact Form 7 - Modern UI Version -->
+<!-- Add this CSS to your theme's style.css or Additional CSS -->
+
+<div class="modern-enquiry-form-wrapper">
+    <div class="form-header-modern">
+        <h2 class="form-title-modern">
+            <i class="fas fa-graduation-cap"></i>
+            Admission Enquiry Form
+        </h2>
+        <p class="form-subtitle-modern">Take the first step towards your engineering career</p>
+    </div>
+
+    <div class="cf7-modern-form">
+        <!-- Personal Information Section -->
+        <div class="form-section-modern">
+            <h4 class="section-title-modern">
+                <i class="fas fa-user"></i>
+                Personal Information
+            </h4>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Your Name <span class="required-modern">*</span></label>
+                        [text* your-name class:form-control-modern placeholder "Enter your full name"]
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Father's Name</label>
+                        [text fathers-name class:form-control-modern placeholder "Enter father's name"]
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">12th / Diploma Reg. No</label>
+                        [text reg-no class:form-control-modern placeholder "Enter registration number"]
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Date of Birth</label>
+                        [date dob class:form-control-modern]
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Community</label>
+                        [text community class:form-control-modern placeholder "Enter community"]
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Course Selected <span class="required-modern">*</span></label>
+                        [select* SelectCourse class:form-control-modern "-- Select Course--"  "Computer Science and Engineering" "Electrical and Electronics Engineering" "Electronics and Communication Engineering" "Mechanical Engineering" "B.Tech-information Technology" "B.Tech- Al and Data Science" "CSE Cyber Security" "CSE AI & Machine Learning" "B.Tech-CS & Business Systems"]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academic Information Section -->
+        <div class="form-section-modern">
+            <h4 class="section-title-modern">
+                <i class="fas fa-book"></i>
+                Academic Information
+            </h4>
+            
+            <div class="academic-subsection-modern">
+                <h5 class="subsection-title-modern">12th Standard Marks</h5>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">Mathematics</label>
+                            [text mark-maths class:form-control-modern placeholder "Out of 100. Type NA, if Diploma"]
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">Physics</label>
+                            [text mark-physics class:form-control-modern placeholder "Out of 100. Type NA, if Diploma"]
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">Chemistry</label>
+                            [text mark-chemistry class:form-control-modern placeholder "Out of 100. Type NA, if Diploma"]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="academic-subsection-modern">
+                <h5 class="subsection-title-modern">Diploma Information</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">Percentage of Marks in Diploma</label>
+                            [text diploma-percent class:form-control-modern placeholder "Overall Mark Percentage. Type NA, if 12th"]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="form-section-modern">
+            <h4 class="section-title-modern">
+                <i class="fas fa-phone"></i>
+                Contact Information
+            </h4>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Email Address</label>
+                        [email email class:form-control-modern placeholder "Enter your email address"]
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Mobile 1 <span class="required-modern">*</span></label>
+                        [tel* mobile1 class:form-control-modern placeholder "Enter primary mobile number"]
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Mobile 2</label>
+                        [tel mobile2 class:form-control-modern placeholder "Enter secondary mobile number"]
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group-modern">
+                        <label class="form-label-modern">Address for Communication</label>
+                        [textarea address-comm class:form-control-modern placeholder "Enter your complete address"]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions-modern">
+            <div class="captcha-container-modern">
+                [recaptcha]
+            </div>
+            
+            <div class="submit-container-modern">
+                [submit class:btn-submit-modern "Submit Application"]
+            </div>
+        </div>
+    </div>
+</div>
