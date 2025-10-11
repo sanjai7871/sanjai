@@ -1,0 +1,337 @@
+/* WordPress Contact Form 7 - Modern Styles */
+/* Add this to your WordPress theme's Additional CSS or style.css */
+
+.modern-enquiry-form-wrapper {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.modern-enquiry-form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.form-header-modern {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 40px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.form-title-modern {
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.form-title-modern i {
+    color: #3498db;
+    font-size: 2.2rem;
+}
+
+.form-subtitle-modern {
+    color: #34495e;
+    font-size: 1.1rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.cf7-modern-form {
+    padding: 40px;
+}
+
+.form-section-modern {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #3498db;
+    transition: all 0.3s ease;
+}
+
+.form-section-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-title-modern {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title-modern i {
+    color: #3498db;
+}
+
+.academic-subsection-modern {
+    margin-bottom: 30px;
+}
+
+.subsection-title-modern {
+    color: #34495e;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+}
+
+.form-group-modern {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-label-modern {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+.required-modern {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Contact Form 7 Field Styling */
+.wpcf7-form-control.form-control-modern {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    color: #2c3e50;
+}
+
+.wpcf7-form-control.form-control-modern:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.wpcf7-form-control.form-control-modern::placeholder {
+    color: #6c757d;
+    opacity: 0.7;
+}
+
+/* Textarea specific styling */
+.wpcf7-textarea.form-control-modern {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Select dropdown styling */
+.wpcf7-select.form-control-modern {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.form-actions-modern {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #dee2e6;
+}
+
+.captcha-container-modern {
+    margin-bottom: 30px;
+}
+
+.submit-container-modern {
+    margin-top: 20px;
+}
+
+.wpcf7-submit.btn-submit-modern {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.wpcf7-submit.btn-submit-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.wpcf7-submit.btn-submit-modern:active {
+    transform: translateY(-1px);
+}
+
+/* Contact Form 7 Validation Styling */
+.wpcf7-not-valid {
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1) !important;
+}
+
+.wpcf7-validation-errors {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    color: #721c24;
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.wpcf7-mail-sent-ok {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    color: #155724;
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 0.9rem;
+}
+
+.wpcf7-response-output {
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+/* Loading state */
+.wpcf7-form.submitting .wpcf7-submit {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.wpcf7-form.submitting .wpcf7-submit::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modern-enquiry-form-wrapper {
+        margin: 20px;
+        border-radius: 10px;
+    }
+    
+    .form-header-modern {
+        padding: 30px 20px;
+    }
+    
+    .form-title-modern {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cf7-modern-form {
+        padding: 20px;
+    }
+    
+    .form-section-modern {
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .section-title-modern {
+        font-size: 1.1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .wpcf7-submit.btn-submit-modern {
+        width: 100%;
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-header-modern {
+        padding: 20px 15px;
+    }
+    
+    .cf7-modern-form {
+        padding: 15px;
+    }
+    
+    .form-section-modern {
+        padding: 15px;
+    }
+    
+    .row {
+        margin: 0 -5px;
+    }
+    
+    .row > [class*="col-"] {
+        padding: 0 5px;
+    }
+}
+
+/* Animation for form sections */
+.form-section-modern {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.6s ease forwards;
+}
+
+.form-section-modern:nth-child(1) { animation-delay: 0.1s; }
+.form-section-modern:nth-child(2) { animation-delay: 0.2s; }
+.form-section-modern:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Focus states for accessibility */
+.wpcf7-form-control:focus {
+    outline: 3px solid rgba(52, 152, 219, 0.3);
+    outline-offset: 2px;
+}

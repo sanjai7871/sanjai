@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Enquiry Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="modern-form-styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid modern-form-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="form-wrapper">
+                    <div class="form-header">
+                        <h2 class="form-title">
+                            <i class="fas fa-graduation-cap me-3"></i>
+                            Admission Enquiry Form
+                        </h2>
+                        <p class="form-subtitle">Take the first step towards your engineering career</p>
+                    </div>
+
+                    <form class="modern-enquiry-form" id="enquiryForm">
+                        <!-- Personal Information Section -->
+                        <div class="form-section">
+                            <h4 class="section-title">
+                                <i class="fas fa-user me-2"></i>
+                                Personal Information
+                            </h4>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="yourName" name="your-name" required>
+                                        <label for="yourName">Your Name <span class="required">*</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="fathersName" name="fathers-name">
+                                        <label for="fathersName">Father's Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="regNo" name="reg-no">
+                                        <label for="regNo">12th / Diploma Reg. No</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="date" class="form-control" id="dob" name="dob">
+                                        <label for="dob">Date of Birth</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="community" name="community">
+                                        <label for="community">Community</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="selectCourse" name="SelectCourse" required>
+                                            <option value="">Select Course</option>
+                                            <option value="cse">Computer Science and Engineering</option>
+                                            <option value="eee">Electrical and Electronics Engineering</option>
+                                            <option value="ece">Electronics and Communication Engineering</option>
+                                            <option value="mech">Mechanical Engineering</option>
+                                            <option value="it">B.Tech - Information Technology</option>
+                                            <option value="ai-ds">B.Tech - AI and Data Science</option>
+                                            <option value="cyber">CSE Cyber Security</option>
+                                            <option value="ai-ml">CSE AI & Machine Learning</option>
+                                            <option value="cs-business">B.Tech - CS & Business Systems</option>
+                                        </select>
+                                        <label for="selectCourse">Course Selected <span class="required">*</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Academic Information Section -->
+                        <div class="form-section">
+                            <h4 class="section-title">
+                                <i class="fas fa-book me-2"></i>
+                                Academic Information
+                            </h4>
+                            
+                            <div class="academic-subsection">
+                                <h5 class="subsection-title">12th Standard Marks</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="markMaths" name="mark-maths" placeholder="Out of 100. Type NA, if Diploma">
+                                            <label for="markMaths">Mathematics</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="markPhysics" name="mark-physics" placeholder="Out of 100. Type NA, if Diploma">
+                                            <label for="markPhysics">Physics</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="markChemistry" name="mark-chemistry" placeholder="Out of 100. Type NA, if Diploma">
+                                            <label for="markChemistry">Chemistry</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="academic-subsection">
+                                <h5 class="subsection-title">Diploma Information</h5>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="diplomaPercent" name="diploma-percent" placeholder="Overall Mark Percentage. Type NA, if 12th">
+                                            <label for="diplomaPercent">Percentage of Marks in Diploma</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information Section -->
+                        <div class="form-section">
+                            <h4 class="section-title">
+                                <i class="fas fa-phone me-2"></i>
+                                Contact Information
+                            </h4>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" name="email">
+                                        <label for="email">Email Address</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="mobile1" name="mobile1" required>
+                                        <label for="mobile1">Mobile 1 <span class="required">*</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="mobile2" name="mobile2">
+                                        <label for="mobile2">Mobile 2</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" id="addressComm" name="address-comm" style="height: 100px"></textarea>
+                                        <label for="addressComm">Address for Communication</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <div class="captcha-container">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="robotCheck" required>
+                                    <label class="form-check-label" for="robotCheck">
+                                        I'm not a robot <span class="required">*</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-submit">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="modern-form-script.js"></script>
+</body>
+</html>
