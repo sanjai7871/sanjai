@@ -1,0 +1,195 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Blog {
+  id           Int      @id @default(autoincrement())
+  title        String
+  slug         String?  @unique
+  content      String?  @db.Text
+  mini_content String?  @db.Text
+  feature_img  String?
+  max          Int?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  cats         Cat[]
+  tags         Tag[]
+}
+
+model Cat {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  slug  String? @unique
+  blogs Blog[]
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  slug  String? @unique
+  blogs Blog[]
+}
+
+model CaseStudy {
+  id                Int     @id @default(autoincrement())
+  wordpress_id      String? @db.Text
+  Title             String? @db.Text
+  Card_Image_Url    String? @db.VarChar(255)
+  Header            String? @db.VarChar(255)
+  Testimonial_Quote String? @db.Text
+  Author_Name       String? @db.VarChar(255)
+  Client_Name       String? @db.VarChar(255)
+  Company_Name      String? @db.VarChar(255)
+  Company_Image_url String? @db.VarChar(255)
+  Card_Title        String? @db.VarChar(255)
+  Category          String? @db.VarChar(255)
+  Challenges        String? @db.Text
+  Results           String? @db.Text
+  Overview          String? @db.Text
+  Card_Description  String? @db.Text
+  Meta_Description  String? @db.Text
+  Industry          String? @db.VarChar(255)
+  Locations         String? @db.VarChar(255)
+  Employees         String? @db.VarChar(255)
+  Product           String? @db.VarChar(255)
+  Service_Time      String? @db.VarChar(255)
+}
+
+model Compare {
+  id                                     Int     @id @default(autoincrement())
+  wordpress_id                           String  @db.Text
+  main_title                             String? @db.Text
+  Dynamic_Fields                         String? @db.Text
+  Document_Sign                          String? @db.Text
+  Onfra_X_App_Access                     String? @map("Onfra-X_App_Access") @db.Text
+  QR_Checkin                             String? @db.Text
+  Auto_Print                             String? @db.Text
+  Invite1                                String? @db.Text
+  Bulk_Invite                            String? @db.Text
+  Recurring_Checkin                      String? @db.Text
+  Photo_Capture3                         String? @db.Text
+  Host_Approval                          String? @db.Text
+  Custom_Filters                         String? @db.Text
+  Device_Custom_Message                  String? @db.Text
+  Visitor_Pass_Customization             String? @db.Text
+  Auto_Checkout                          String? @db.Text
+  Business_Card_Scanning                 String? @db.Text
+  Device_Color_Customization             String? @db.Text
+  Daily_Report                           String? @db.Text
+  Weekly_Report                          String? @db.Text
+  Monthly_Report                         String? @db.Text
+  Yearly_Report                          String? @db.Text
+  OTP_Verification                       String? @db.Text
+  QR_Checkout                            String? @db.Text
+  National_ID_Scan                       String? @map("National-ID_Scan") @db.Text
+  AI_QR_Image                            String? @map("AI-QR_Image") @db.Text
+  ID_Print_Templates                     String? @map("ID-Print_Templates") @db.Text
+  Visitor_Host_Otp_Verify                String? @map("Visitor_Host-Otp_Verify") @db.Text
+  Visitor_Alert_Notification             String? @db.Text
+  Visitor_Quick_Checkin                  String? @db.Text
+  Appointments_Pre_Register              String? @map("Appointments/Pre-Register") @db.Text
+  Visitor_QR_Scan_for_Secondary_Checkins String? @map("Visitor_QR-Scan_for_Secondary_Checkins") @db.Text
+  Visitor_Photo_Upload                   String? @db.Text
+  Multi_Approval_System                  String? @db.Text
+  Host_Notification1                     String? @db.Text
+  Visitor_Welcome_Message                String? @db.Text
+  Employee_Checkins                      String? @db.Text
+  Employee_Location_Tracker              String? @db.Text
+  Easy_Recruitment                       String? @db.Text
+  Attendance_Tracker                     String? @db.Text
+  Photo_Capture4                         String? @db.Text
+  Leaves_Tracker                         String? @db.Text
+  Employee_Quick_Checkin                 String? @db.Text
+  Employee_Geo_Fencing                   String? @db.Text
+  Employee_Report_pdf_excel2             String? @map("Employee_Report_pdf/excel2") @db.Text
+  Mobile_for_Checkin                     String? @db.Text
+  Mobile_for_Leave_Request               String? @db.Text
+  Report_pdf_excel1                      String? @map("Report_pdf/excel1") @db.Text
+  Member_Passes_with_restrictions        String? @db.Text
+  Member_Approval_Flow                   String? @db.Text
+  Member_Checkin                         String? @db.Text
+  Photo_Capture1                         String? @db.Text
+  FlexiPass_Quick_Checkin                String? @db.Text
+  Mobile_for_host_verification1          String? @db.Text
+  Easy_Recording_Process                 String? @db.Text
+  Digital_Delivery_Log                   String? @db.Text
+  Secure_Pickup                          String? @db.Text
+  Photo_Capture2                         String? @db.Text
+  Mobile_for_host_verification2          String? @db.Text
+  Host_Notification2                     String? @db.Text
+  Report_pdf_excel3                      String? @map("Report_pdf/excel3") @db.Text
+  Rooms                                  String? @db.Text
+  Meeting                                String? @db.Text
+  Smart_Filters                          String? @db.Text
+  Calendar_View                          String? @db.Text
+  External_Invite                        String? @db.Text
+  Conflict_Meetings_Config               String? @db.Text
+  Meeting_Approvals                      String? @db.Text
+  Recurring_Meeting                      String? @db.Text
+  MoM                                    String? @db.Text
+  Mobile_For_Users                       String? @db.Text
+  Google_Sync                            String? @db.Text
+  Outlook_Sync                           String? @db.Text
+  External_Meeting_Link_Generation       String? @db.Text
+  Room_Meeting_Displays                  String? @map("Room/Meeting_Displays") @db.Text
+  Walk_In_Booking                        String? @map("Walk-In_Booking") @db.Text
+  Multi_Language_Secure_Display          String? @map("Multi-Language_Secure_Display") @db.Text
+  Passes                                 String? @db.Text
+  Checkins                               String? @db.Text
+  Dynamic_Items                          String? @db.Text
+  Pass_Approval_Flow                     String? @db.Text
+  Pass_Print_Template                    String? @db.Text
+  Material_Checkin_Photo_Capture         String? @db.Text
+  Report_pdf_excel4                      String? @map("Report_pdf/excel4") @db.Text
+  Counters                               String? @db.Text
+  Tokens                                 String? @db.Text
+  Multi_Secure_Display_View              String? @db.Text
+  Real_Time_Updates1                     String? @db.Text
+  Staff_Feedback                         String? @db.Text
+  Report_Pdf_Excel                       String? @map("Report_(Pdf/Excel)") @db.Text
+  Visitor_Module_Integration             String? @db.Text
+  Notifications                          String? @db.Text
+  Multi_Layout_Secure_Displays           String? @db.Text
+  Multi_Widgets                          String? @db.Text
+  Image_Slideshows                       String? @db.Text
+  Real_Time_Updates2                     String? @db.Text
+  page_title                             String? @db.Text
+  page_description                       String? @db.Text
+  img_url                                String? @db.Text
+  Title                                  String? @db.Text
+}
+
+model Faq {
+  id       String  @id @db.VarChar(255)
+  category String  @db.VarChar(255)
+  Question String  @db.Text
+  Answer   String  @db.LongText
+  order    Int?
+}
+
+model CountryWorkplaceData {
+  id                  BigInt @id @default(autoincrement())
+  country_code        String @unique @db.VarChar(10)
+  country_data        String @db.LongText
+  country_market_data String @db.LongText
+}
+
+model Testimonial {
+  Id         Int       @id
+  name       String    @db.VarChar(255)
+  position   String    @db.VarChar(255)
+  content    String    @db.Text
+  img        String?   @db.VarChar(500)
+  category   String?   @db.VarChar(255)
+  created_at DateTime? @default(now())
+  updated_at DateTime? @updatedAt
+  Title      String?   @db.VarChar(255)
+}
